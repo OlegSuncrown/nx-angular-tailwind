@@ -1,7 +1,10 @@
 {
   "version": 2,
   "projects": {
+    "angular-admin": "apps/angular-admin",
+    "angular-admin-e2e": "apps/angular-admin-e2e",
     "angular-client": "apps/angular-client",
-    "angular-client-e2e": "apps/angular-client-e2e"
+    "angular-client-e2e": "apps/angular-client-e2e",
+    "api": "apps/api"
   }
 }
