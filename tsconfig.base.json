@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@nx/client/feature-home": ["libs/client/feature-home/src/index.ts"],
+      "@nx/client/shell": ["libs/client/shell/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

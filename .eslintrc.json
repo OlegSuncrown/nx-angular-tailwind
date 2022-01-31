@@ -22,7 +22,7 @@
               },
               {
                 "sourceTag": "scope:client",
-                "onlyDependOnLibsWithTags": ["scope:shared", "scope:client"]
+                "onlyDependOnLibsWithTags": ["scope:client", "scope:shared"]
               }
             ]
           }
