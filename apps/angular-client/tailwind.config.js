@@ -1,5 +1,5 @@
 const { createGlobPatternsForDependencies } = require('@nrwl/angular/tailwind');
-const { join } = require('path');
+const { join } = require('path'); 
 const sharedTailwindConfig = require('../../libs/shared/styles/tailwind-preset/tailwind.config');
 
 module.exports = {
@@ -11,7 +11,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        bermuda: '#5c6ac4'
+        quiz: {
+          400: '#A769C3',
+          500: '#7E55B2',
+          600: '#714785',
+          700: '#533461',
+        },
       },
     },
   },
