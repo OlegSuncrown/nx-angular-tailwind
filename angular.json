@@ -8,6 +8,7 @@
     "api": "apps/api",
     "client-feature-home": "libs/client/feature-home",
     "client-shell": "libs/client/shell",
+    "client-ui-quiz-button": "libs/client/ui/quiz-button",
     "tailwind-preset": "libs/shared/styles/tailwind-preset"
   }
 }

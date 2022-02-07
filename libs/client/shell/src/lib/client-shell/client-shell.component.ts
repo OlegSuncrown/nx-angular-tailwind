@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'client-shell',
@@ -6,10 +6,10 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./client-shell.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ClientShellComponent implements OnInit {
-  constructor() {}
+export class ClientShellComponent {
+  // constructor() {}
 
-  ngOnInit(): void {
-    console.log(ClientShellComponent.name);
-  }
+  // ngOnInit(): void {
+  //   console.log(ClientShellComponent.name);
+  // }
 }

@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/client/ui/quiz-button",
+  "sourceRoot": "libs/client/ui/quiz-button/src",
+  "prefix": "nx",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/ui/quiz-button"],
+      "options": {
+        "jestConfig": "libs/client/ui/quiz-button/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/client/ui/quiz-button/src/**/*.ts",
+          "libs/client/ui/quiz-button/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["scope:client", "type:lib"]
+}
