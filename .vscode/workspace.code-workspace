@@ -7,7 +7,7 @@
 			"path": "..\\apps\\angular-client"
 		},
 		{
-			"path": "..\\libs"
+			"path": "..\\libs\\client"
 		}
 	],
 	"settings": {

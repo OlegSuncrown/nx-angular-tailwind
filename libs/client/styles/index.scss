@@ -13,3 +13,9 @@
     @apply bg-quiz-900;
   }
 }
+
+@layer components {
+  .quiz-input-name {
+    @apply text-center h-14 w-full border-b-2 border-quiz-700 text-gray-200 bg-transparent focus:placeholder-transparent focus:outline-none focus:border-gray-400;
+  }
+}

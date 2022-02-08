@@ -1,4 +1,29 @@
-<header class="px-xl py-md bg-bermuda text-xl font-bold shadow-md">
-  Angular + Tailwind CSS + Nx
-</header>
-<img src="./assets/images/logo.png" alt="">
+<div class="container mx-auto h-screen flex flex-col pt-24 items-center">
+  <img class="block w-36 mb-28" src="./assets/images/logo.png" alt="quiz logo">
+  <form class="bg-quiz-800 md:px-28 px-8 lg:px-32 lg:w-3/4 xl:w-1/2 py-16 mx-auto text-center">
+    <h2 class="text-gray-200 text-3xl font-semibold mb-3">Welcome!</h2>
+    <label class="text-gray-400 text-sm block mb-10" for="name">Please enter your name and let's start our quiz!</label>
+    <input
+      id="name"
+      placeholder="TYPE YOUR NAME HERE..."
+      autocomplete="off"
+      type="text"
+      class="mb-8 quiz-input-name"
+    />
+    <button quizButton type="submit">
+      Start Quiz
+      <svg
+        class="ml-2 -mr-1 w-5 h-5"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+          clip-rule="evenodd"
+        ></path>
+      </svg>
+    </button>
+  </form>
+</div>
