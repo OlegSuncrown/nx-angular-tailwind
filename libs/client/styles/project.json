@@ -1,0 +1,7 @@
+{
+  "projectType": "library",
+  "root": "libs/client/styles",
+  "sourceRoot": "libs/client/styles",
+  "targets": {},
+  "tags": ["type:lib", "scope:client"]
+}

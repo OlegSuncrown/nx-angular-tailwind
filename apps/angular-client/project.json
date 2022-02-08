@@ -15,10 +15,18 @@
         "tsConfig": "apps/angular-client/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
-          "apps/angular-client/src/favicon.ico",
-          "apps/angular-client/src/assets"
+          {
+            "glob": "favicon.ico",
+            "input": "libs/client/assets/src",
+            "output": "./"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/client/assets/src",
+            "output": "assets"
+          }
         ],
-        "styles": ["apps/angular-client/src/styles.scss"],
+        "styles": ["apps/angular-client/src/styles.scss", "libs/client/styles/index.scss"],
         "scripts": []
       },
       "configurations": {
