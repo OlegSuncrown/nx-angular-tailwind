@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "..\\apps\\angular-admin"
+		},
+		{
+			"path": "..\\apps\\angular-client"
+		},
+		{
+			"path": "..\\libs"
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"css.validate": false,
+		"scss.validate": false,
+		"editor.quickSuggestions": {
+			"strings": true
+		}
+	}
+}

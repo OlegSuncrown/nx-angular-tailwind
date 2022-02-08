@@ -8,9 +8,8 @@ describe('ClientShellComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ClientShellComponent ]
-    })
-    .compileComponents();
+      declarations: [ClientShellComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

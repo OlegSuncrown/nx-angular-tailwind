@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'client-feature-home',
-  preset: '../../../jest.preset.js',
+  displayName: 'client-features-shell',
+  preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -8,7 +8,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../../coverage/libs/client/feature-home',
+  coverageDirectory: '../../../../coverage/libs/client/features/shell',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },

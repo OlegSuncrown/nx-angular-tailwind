@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ClientShellModule } from '@nx/client/shell';
+import { ClientShellModule } from '@nx/client-features-shell';
 
 import { AppComponent } from './app.component';
 

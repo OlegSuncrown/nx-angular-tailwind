@@ -1,14 +1,14 @@
 {
   "projectType": "library",
-  "root": "libs/client/feature-home",
-  "sourceRoot": "libs/client/feature-home/src",
+  "root": "libs/client/features/shell",
+  "sourceRoot": "libs/client/features/shell/src",
   "prefix": "client",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/client/feature-home"],
+      "outputs": ["coverage/libs/client/features/shell"],
       "options": {
-        "jestConfig": "libs/client/feature-home/jest.config.js",
+        "jestConfig": "libs/client/features/shell/jest.config.js",
         "passWithNoTests": true
       }
     },
@@ -16,8 +16,8 @@
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": [
-          "libs/client/feature-home/src/**/*.ts",
-          "libs/client/feature-home/src/**/*.html"
+          "libs/client/features/shell/src/**/*.ts",
+          "libs/client/features/shell/src/**/*.html"
         ]
       }
     }

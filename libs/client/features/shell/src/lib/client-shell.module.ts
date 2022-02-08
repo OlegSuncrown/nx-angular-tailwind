@@ -5,12 +5,7 @@ import { ClientUiQuizButtonModule } from '@nx/client/ui/quiz-button';
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [
-    ClientShellComponent
-  ],
-  exports: [
-    ClientShellComponent,
-    ClientUiQuizButtonModule
-  ],
+  declarations: [ClientShellComponent],
+  exports: [ClientShellComponent, ClientUiQuizButtonModule],
 })
 export class ClientShellModule {}

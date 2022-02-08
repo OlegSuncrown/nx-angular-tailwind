@@ -11,7 +11,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // bermuda: '#43302b'
+        bermuda: '#ff0000'
       },
     },
   },

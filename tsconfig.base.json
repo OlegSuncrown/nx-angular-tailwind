@@ -15,8 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx/client/feature-home": ["libs/client/feature-home/src/index.ts"],
-      "@nx/client/shell": ["libs/client/shell/src/index.ts"],
+      "@nx/client-features-shell": ["libs/client/features/shell/src/index.ts"],
       "@nx/client/ui/quiz-button": ["libs/client/ui/quiz-button/src/index.ts"]
     }
   },
