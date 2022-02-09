@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'nx-start-quiz',
@@ -6,9 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./start-quiz.component.scss']
 })
 export class StartQuizComponent {
-
-
-
+  nameControl: FormControl = new FormControl('')
 }
 // import { Component, OnInit } from '@angular/core';
 
