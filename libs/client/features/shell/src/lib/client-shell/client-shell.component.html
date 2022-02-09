@@ -1,1 +1,8 @@
-<router-outlet></router-outlet>
+<div class="h-full relative overflow-hidden z-0">
+  <div class="absolute top-5 -left-48 w-144 h-144 bg-red-900 rounded-full mix-blend-screen opacity-20 filter blur-2xl animate-blob"></div>
+  <div class="absolute top-24 -right-48 w-144 h-144 bg-yellow-300 rounded-full mix-blend-screen opacity-10 filter blur-2xl animate-blob animation-delay-2000"></div>
+  <div class="absolute -bottom-1/3 left-1/4 w-144 h-144 bg-sky-500 rounded-full mix-blend-screen opacity-10 filter blur-2xl animate-blob animation-delay-4000"></div>
+  <div class="relative z-10">
+    <router-outlet></router-outlet>
+  </div>
+</div>

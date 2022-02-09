@@ -1,21 +1,29 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 // .quiz-button {
 //   @apply transition-all duration-500  disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed text-white bg-gradient-to-r from-quiz-500 to-quiz-400 font-normal uppercase rounded text-sm px-4 py-3 text-center inline-flex items-center hover:from-quiz-700 hover:to-quiz-600;
 // }
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   body,
   html {
-    @apply bg-quiz-900;
+    @apply bg-quiz-900 h-full;
   }
 }
 
 @layer components {
   .quiz-input-name {
-    @apply text-center h-14 w-full border-b-2 border-quiz-700 text-gray-200 bg-transparent focus:placeholder-transparent focus:outline-none focus:border-gray-400;
+    @apply transition duration-100 outline-none text-center h-14 w-full border-b-2 border-quiz-700 text-gray-200 bg-transparent focus:placeholder-transparent  focus:border-gray-400;
+  }
+}
+
+@layer utilities {
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
   }
 }

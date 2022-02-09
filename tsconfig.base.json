@@ -16,6 +16,9 @@
     "baseUrl": ".",
     "paths": {
       "@nx/client-features-shell": ["libs/client/features/shell/src/index.ts"],
+      "@nx/client/features/feature-quiz": [
+        "libs/client/features/feature-quiz/src/index.ts"
+      ],
       "@nx/client/features/feature-start-quiz": [
         "libs/client/features/feature-start-quiz/src/index.ts"
       ],
