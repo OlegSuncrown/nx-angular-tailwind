@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ClientShellModule } from '@nx/client-features-shell';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { ClientShellModule } from '@nx/client-features-shell';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, ClientShellModule],
+  imports: [BrowserModule, ClientShellModule, RouterModule],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/client/features/feature-start-quiz",
+  "sourceRoot": "libs/client/features/feature-start-quiz/src",
+  "prefix": "nx",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/features/feature-start-quiz"],
+      "options": {
+        "jestConfig": "libs/client/features/feature-start-quiz/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/client/features/feature-start-quiz/src/**/*.ts",
+          "libs/client/features/feature-start-quiz/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["scope:client", "type:lib"]
+}

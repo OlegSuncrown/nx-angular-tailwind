@@ -6,10 +6,11 @@
     "angular-client": "apps/angular-client",
     "angular-client-e2e": "apps/angular-client-e2e",
     "api": "apps/api",
-    "client-features-shell": "libs/client/features/shell",
-    "client-ui-quiz-button": "libs/client/ui/quiz-button",
-    "client-styles": "libs/client/styles",
     "client-assets": "libs/client/assets",
+    "client-features-feature-start-quiz": "libs/client/features/feature-start-quiz",
+    "client-features-shell": "libs/client/features/shell",
+    "client-styles": "libs/client/styles",
+    "client-ui-quiz-button": "libs/client/ui/quiz-button",
     "tailwind-preset": "libs/shared/styles/tailwind-preset"
   }
 }
