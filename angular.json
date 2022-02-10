@@ -13,6 +13,7 @@
     "client-styles": "libs/client/styles",
     "client-ui-quiz-button": "libs/client/ui/quiz-button",
     "client-ui-quiz-nav": "libs/client/ui/quiz-nav",
+    "client-ui-quiz-score": "libs/client/ui/quiz-score",
     "tailwind-preset": "libs/shared/styles/tailwind-preset"
   }
 }

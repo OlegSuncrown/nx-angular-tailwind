@@ -1,0 +1,23 @@
+{
+  "projectType": "library",
+  "root": "libs/client/ui/quiz-score",
+  "sourceRoot": "libs/client/ui/quiz-score/src",
+  "prefix": "nx",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/ui/quiz-score"],
+      "options": {
+        "jestConfig": "libs/client/ui/quiz-score/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/client/ui/quiz-score/src/**/*.ts", "libs/client/ui/quiz-score/src/**/*.html"]
+      }
+    }
+  },
+  "tags": ["scope:client", "type:lib"]
+}
