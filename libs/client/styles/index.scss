@@ -1,6 +1,7 @@
 // .quiz-button {
 //   @apply transition-all duration-500  disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed text-white bg-gradient-to-r from-quiz-500 to-quiz-400 font-normal uppercase rounded text-sm px-4 py-3 text-center inline-flex items-center hover:from-quiz-700 hover:to-quiz-600;
 // }
+@use 'variables';
 
 @tailwind base;
 @tailwind components;
@@ -10,6 +11,7 @@
   body,
   html {
     @apply bg-quiz-900 h-full;
+    font-family: arial;
   }
 }
 

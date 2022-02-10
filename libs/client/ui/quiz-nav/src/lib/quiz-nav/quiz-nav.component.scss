@@ -1,3 +1,18 @@
 :host {
   display: block;
 }
+
+// .indicator-current {
+//   @apply bg-slate-600;
+//   background: linear-gradient(90deg, var(--quiz-300) 70%, theme('colors.slate.200') 100%);
+// }
+
+.indicator-current {
+  @apply bg-slate-600;
+  background: linear-gradient(90deg, theme('colors.slate.200') 70%, rgba(255, 255, 255, 0) 100%);
+}
+
+.indicator-completed {
+  @apply bg-slate-600;
+  background: linear-gradient(90deg, theme('colors.quiz.300') 70%, rgba(255, 255, 255, 0) 100%);
+}

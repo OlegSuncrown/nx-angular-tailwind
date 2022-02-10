@@ -4,26 +4,23 @@ const sharedTailwindConfig = require('../../libs/shared/styles/tailwind-preset/t
 
 module.exports = {
   presets: [sharedTailwindConfig],
-  content: [
-    join(__dirname, 'src/**/!(*.stories|*.spec).{ts,html}'),
-    ...createGlobPatternsForDependencies(__dirname),
-  ],
+  content: [join(__dirname, 'src/**/!(*.stories|*.spec).{ts,html}'), ...createGlobPatternsForDependencies(__dirname)],
   theme: {
     extend: {
       colors: {
         quiz: {
-          300: '#A769C3',
-          400: '#7E55B2',
-          500: '#714785',
-          600: '#533461',
-          700: '#373B62',
-          800: '#1B1D31',
-          900: '#12131E',
+          300: 'var(--quiz-300)',
+          400: 'var(--quiz-400)',
+          500: 'var(--quiz-500)',
+          600: 'var(--quiz-600)',
+          700: 'var(--quiz-700)',
+          800: 'var(--quiz-800)',
+          900: 'var(--quiz-900)',
         },
       },
       spacing: {
-        '128': '32rem',
-        '144': '36rem',
+        128: '32rem',
+        144: '36rem',
       },
       animation: {
         blob: 'blob 7s infinite',
