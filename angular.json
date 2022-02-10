@@ -12,6 +12,7 @@
     "client-features-shell": "libs/client/features/shell",
     "client-styles": "libs/client/styles",
     "client-ui-quiz-button": "libs/client/ui/quiz-button",
+    "client-ui-quiz-nav": "libs/client/ui/quiz-nav",
     "tailwind-preset": "libs/shared/styles/tailwind-preset"
   }
 }

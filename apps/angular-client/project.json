@@ -26,10 +26,7 @@
             "output": "assets"
           }
         ],
-        "styles": [
-          "apps/angular-client/src/styles.scss",
-          "libs/client/styles/index.scss"
-        ],
+        "styles": ["apps/angular-client/src/styles.scss", "libs/client/styles/index.scss"],
         "scripts": []
       },
       "configurations": {
@@ -86,10 +83,7 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": [
-          "apps/angular-client/src/**/*.ts",
-          "apps/angular-client/src/**/*.html"
-        ]
+        "lintFilePatterns": ["apps/angular-client/src/**/*.ts", "apps/angular-client/src/**/*.html"]
       }
     },
     "test": {
