@@ -8,7 +8,9 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-    "start:prod": "node dist/apps/api/main.js"
+    "start:prod": "node dist/apps/api/main.js",
+    "api:build": "ng build api --prod",
+    "heroku-postbuild": "npm run api:build"
   },
   "private": true,
   "dependencies": {
