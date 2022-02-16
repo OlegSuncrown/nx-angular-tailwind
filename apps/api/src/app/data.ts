@@ -1,0 +1,78 @@
+export const data = [
+  {
+    id: '1',
+    category: 'jazz',
+    data: [
+      {
+        id: '1-1',
+        name: 'Louis Armstrong',
+        songTitle: 'What a Wonderful World',
+        image: 'images/1-1.jpg',
+        audio: 'audio/1-1.mp3',
+        description: `Louis Daniel Armstrong (August 4, 1901 - July 6, 1971), nicknamed "Satchmo", "Satch", and "Pops", was an American trumpeter and vocalist. He is among the most influential figures in jazz. His career spanned five decades and different eras in the history of jazz.`,
+      },
+      {
+        id: '1-2',
+        name: 'Miles Davis',
+        songTitle: 'Freddie Freeloader',
+        image: 'images/1-2.jpg',
+        audio: 'audio/1-2.mp3',
+        description: `Miles Dewey Davis III (May 26, 1926 - September 28, 1991) was an American trumpeter, bandleader, and composer. He is among the most influential and acclaimed figures in the history of jazz and 20th-century music. Davis adopted a variety of musical directions in a five-decade career that kept him at the forefront of many major stylistic developments in jazz.`,
+      },
+      {
+        id: '1-3',
+        name: 'Ella Fitzgerald',
+        songTitle: 'Blue Skies',
+        image: 'images/1-3.jpg',
+        audio: 'audio/1-3.mp3',
+        description: `Ella Jane Fitzgerald (April 25, 1917 - June 15, 1996) was an American jazz singer, sometimes referred to as the "First Lady of Song", "Queen of Jazz", and "Lady Ella". She was noted for her purity of tone, impeccable diction, phrasing, timing, intonation, and a "horn-like" improvisational ability, particularly in her scat singing.`,
+      },
+      {
+        id: '1-4',
+        name: 'John Coltrane',
+        songTitle: '',
+        image: 'images/1-4.jpg',
+        audio: 'audio/1-4.mp3',
+        description: `John William Coltrane (September 23, 1926 - July 17, 1967) was an American jazz saxophonist and composer. Working in the bebop and hard bop idioms early in his career, Coltrane helped pioneer the use of modes and was one of the players at the forefront of free jazz. He led at least fifty recording sessions and appeared on many albums by other musicians, including trumpeter Miles Davis and pianist Thelonious Monk.`,
+      },
+    ],
+  },
+  {
+    id: '2',
+    category: 'rock',
+    data: [
+      {
+        id: '2-1',
+        name: 'Pink Floyd',
+        songTitle: 'High Hopes',
+        image: 'images/2-1.jpg',
+        audio: 'audio/2-1.mp3',
+        description: `Pink Floyd were an English rock band formed in London in 1964. Gaining an early following as one of the first British psychedelic groups, they were distinguished for their extended compositions, sonic experimentation, philosophical lyrics and elaborate live shows. They became a leading band of the progressive rock genre, cited by some as the greatest progressive rock band of all time.`,
+      },
+      {
+        id: '2-2',
+        name: 'AC/DC',
+        songTitle: 'Thunderstruck',
+        image: 'images/2-2.jpg',
+        audio: 'audio/2-2.mp3',
+        description: `AC/DC are an Australian rock band formed in Sydney in 1973 by Scottish-born brothers Malcolm and Angus Young. Their music has been variously described as hard rock, blues rock, and heavy metal, but the band themselves call it simply "rock and roll".`,
+      },
+      {
+        id: '2-3',
+        name: 'Linkin Park',
+        songTitle: 'Numb',
+        image: 'images/2-3.jpg',
+        audio: 'audio/2-3.mp3',
+        description: `Linkin Park is an American rock band from Agoura Hills, California. The band's current lineup comprises vocalist/rhythm guitarist/keyboardist Mike Shinoda, lead guitarist Brad Delson, bassist Dave Farrell, DJ/turntablist Joe Hahn and drummer Rob Bourdon, all of whom are founding members. Vocalists Mark Wakefield and Chester Bennington are former members of the band. Categorized as alternative rock, Linkin Park's earlier music spanned a fusion of heavy metal and hip hop, while their later music features more electronica and pop elements.`,
+      },
+      {
+        id: '2-4',
+        name: 'Nickelback',
+        songTitle: 'When We Stand Together',
+        image: 'images/2-4.jpg',
+        audio: 'audio/2-4.mp3',
+        description: `Nickelback is a Canadian rock band formed in 1995 in Hanna, Alberta. It is composed of guitarist and lead vocalist Chad Kroeger, guitarist, keyboardist and backing vocalist Ryan Peake, bassist Mike Kroeger, and drummer Daniel Adair. It went through several drummer changes between 1995 and 2005, achieving its current lineup when Adair replaced Ryan Vikedal.`,
+      },
+    ],
+  },
+];
