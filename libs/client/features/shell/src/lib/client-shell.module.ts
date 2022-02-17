@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { ClientShellComponent } from './client-shell/client-shell.component';
+import { SharedDataAccessNgrxRootStoreModule } from '@nx/shared/data-access/ngrx-root-store';
 
 const routes: Routes = [
   {
@@ -16,23 +17,18 @@ const routes: Routes = [
       {
         path: 'start',
         loadChildren: () =>
-          import('@nx/client/features/feature-start-quiz').then(
-            (m) => m.ClientFeatureStartQuizModule
-          ),
+          import('@nx/client/features/feature-start-quiz').then((m) => m.ClientFeatureStartQuizModule),
       },
       {
         path: 'quiz',
-        loadChildren: () =>
-          import('@nx/client/features/feature-quiz').then(
-            (m) => m.ClientFeatureQuizModule
-          ),
+        loadChildren: () => import('@nx/client/features/feature-quiz').then((m) => m.ClientFeatureQuizModule),
       },
     ],
   },
 ];
 
 @NgModule({
-  imports: [CommonModule, RouterModule.forRoot(routes)],
+  imports: [CommonModule, RouterModule.forRoot(routes), SharedDataAccessNgrxRootStoreModule],
   declarations: [ClientShellComponent],
 })
 export class ClientShellModule {}
