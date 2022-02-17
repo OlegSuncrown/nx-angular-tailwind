@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/shared/data-access/ngrx-root-store",
+  "sourceRoot": "libs/shared/data-access/ngrx-root-store/src",
+  "prefix": "nx",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/data-access/ngrx-root-store"],
+      "options": {
+        "jestConfig": "libs/shared/data-access/ngrx-root-store/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/data-access/ngrx-root-store/src/**/*.ts",
+          "libs/shared/data-access/ngrx-root-store/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

@@ -20,7 +20,8 @@
       "@nx/client/features/feature-start-quiz": ["libs/client/features/feature-start-quiz/src/index.ts"],
       "@nx/client/ui/quiz-button": ["libs/client/ui/quiz-button/src/index.ts"],
       "@nx/client/ui/quiz-nav": ["libs/client/ui/quiz-nav/src/index.ts"],
-      "@nx/client/ui/quiz-score": ["libs/client/ui/quiz-score/src/index.ts"]
+      "@nx/client/ui/quiz-score": ["libs/client/ui/quiz-score/src/index.ts"],
+      "@nx/shared/data-access/ngrx-root-store": ["libs/shared/data-access/ngrx-root-store/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
