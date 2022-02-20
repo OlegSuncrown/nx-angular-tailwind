@@ -9,6 +9,6 @@ export interface QuizItem {
 
 export interface QuizSection {
   id: string;
-  category: string;
+  genre: string;
   data: QuizItem[];
 }
