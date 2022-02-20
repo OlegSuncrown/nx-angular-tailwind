@@ -14,7 +14,7 @@ export class QuizStoreEffects {
       switchMap(() =>
         this.apiService.getQuizData().pipe(
           map((data) => loadQuizDataSuccess({ data })),
-          catchError((error) => of(loadQuizDataFailure({ error })))
+          catchError(() => of(loadQuizDataFailure({ error: 'Failed to load quiz data' })))
         )
       )
     )
