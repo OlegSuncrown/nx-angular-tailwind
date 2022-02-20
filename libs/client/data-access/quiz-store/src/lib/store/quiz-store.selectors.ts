@@ -1,6 +1,16 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import * as fromQuizStore from './reducers/quiz-store.reducer';
+import { QuizState, quizFeatureKey } from './reducers';
+import { apiQuizFeatureKey } from './reducers/api-quiz.reducer';
+import { quizGameFeatureKey } from './reducers/quiz.reducer';
 
-export const selectQuizStoreState = createFeatureSelector<fromQuizStore.State>(
-  fromQuizStore.quizStoreFeatureKey
+export const selectQuizState = createFeatureSelector<QuizState>(quizFeatureKey);
+
+export const selectApiQuizState = createSelector(
+  selectQuizState,
+  (state) => state[apiQuizFeatureKey]
+);
+
+export const selectGameQuizState = createSelector(
+  selectQuizState,
+  (state) => state[quizGameFeatureKey]
 );

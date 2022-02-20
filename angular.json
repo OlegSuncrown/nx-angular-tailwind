@@ -16,6 +16,7 @@
     "client-ui-quiz-nav": "libs/client/ui/quiz-nav",
     "client-ui-quiz-score": "libs/client/ui/quiz-score",
     "shared-data-access-ngrx-root-store": "libs/shared/data-access/ngrx-root-store",
+    "shared-types-api-quiz": "libs/shared/types/api-quiz",
     "tailwind-preset": "libs/shared/styles/tailwind-preset"
   }
 }

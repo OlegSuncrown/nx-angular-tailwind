@@ -1,5 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { apiQuizActions } from '../actions';
+
 export const apiQuizFeatureKey = 'apiQuizState';
 
 export interface State {

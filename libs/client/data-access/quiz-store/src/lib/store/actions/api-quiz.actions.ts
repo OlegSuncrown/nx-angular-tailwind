@@ -1,4 +1,5 @@
 import { createAction, props } from '@ngrx/store';
+import { QuizSection } from '@nx/shared/types/api-quiz';
 
 enum Actions {
   loadData = '[Quiz/API] Load Data',
@@ -10,7 +11,7 @@ export const loadQuizData = createAction(Actions.loadData);
 
 export const loadQuizDataSuccess = createAction(
   Actions.loadDataSuccess,
-  props<{ data: any[] }>()
+  props<{ data: QuizSection[] }>()
 );
 
 export const loadQuizDataFailure = createAction(

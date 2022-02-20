@@ -1,12 +1,13 @@
 import { createReducer, on } from '@ngrx/store';
 import { apiQuizActions, quizActions } from '../actions';
+import { QuizSection } from '@nx/shared/types/api-quiz';
 
-export const quizFeatureKey = 'gameQuizState';
+export const quizGameFeatureKey = 'gameQuizState';
 
 export interface State {
   name: string;
   score: number;
-  data: any[];
+  data: QuizSection[];
 }
 
 export const initialState: State = {

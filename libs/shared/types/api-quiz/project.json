@@ -1,0 +1,23 @@
+{
+  "projectType": "library",
+  "root": "libs/shared/types/api-quiz",
+  "sourceRoot": "libs/shared/types/api-quiz/src",
+  "prefix": "nx",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/types/api-quiz"],
+      "options": {
+        "jestConfig": "libs/shared/types/api-quiz/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/shared/types/api-quiz/src/**/*.ts", "libs/shared/types/api-quiz/src/**/*.html"]
+      }
+    }
+  },
+  "tags": []
+}

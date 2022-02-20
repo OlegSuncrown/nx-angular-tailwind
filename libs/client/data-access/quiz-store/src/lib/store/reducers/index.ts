@@ -1,18 +1,18 @@
 import { Action, combineReducers } from '@ngrx/store';
 
-import * as fromApiQuiz from './api-quiz-store.reducer';
-import * as fromGameQuiz from './quiz-store.reducer';
+import * as fromApiQuiz from './api-quiz.reducer';
+import * as fromGameQuiz from './quiz.reducer';
 
 export const quizFeatureKey = 'quizState';
 
-export interface AuthState {
+export interface QuizState {
   [fromApiQuiz.apiQuizFeatureKey]: fromApiQuiz.State;
-  [fromGameQuiz.quizFeatureKey]: fromGameQuiz.State;
+  [fromGameQuiz.quizGameFeatureKey]: fromGameQuiz.State;
 }
 
-export function reducers(state: AuthState | undefined, action: Action) {
+export function reducers(state: QuizState | undefined, action: Action) {
   return combineReducers({
     [fromApiQuiz.apiQuizFeatureKey]: fromApiQuiz.reducer,
-    [fromGameQuiz.quizFeatureKey]: fromGameQuiz.reducer,
+    [fromGameQuiz.quizGameFeatureKey]: fromGameQuiz.reducer,
   })(state, action);
 }
