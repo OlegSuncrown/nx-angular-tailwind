@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/client/data-access/quiz-store",
+  "sourceRoot": "libs/client/data-access/quiz-store/src",
+  "prefix": "nx",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/data-access/quiz-store"],
+      "options": {
+        "jestConfig": "libs/client/data-access/quiz-store/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/client/data-access/quiz-store/src/**/*.ts",
+          "libs/client/data-access/quiz-store/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

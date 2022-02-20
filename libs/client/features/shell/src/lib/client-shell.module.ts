@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { ClientShellComponent } from './client-shell/client-shell.component';
-import { SharedDataAccessNgrxRootStoreModule } from '@nx/shared/data-access/ngrx-root-store';
+import { NgrxRootStoreModule } from '@nx/shared/data-access/ngrx-root-store';
+import { QuizStoreModule } from '@nx/client/data-access/quiz-store';
 
 const routes: Routes = [
   {
@@ -28,7 +29,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [CommonModule, RouterModule.forRoot(routes), SharedDataAccessNgrxRootStoreModule],
+  imports: [CommonModule, RouterModule.forRoot(routes), NgrxRootStoreModule, QuizStoreModule],
   declarations: [ClientShellComponent],
 })
 export class ClientShellModule {}

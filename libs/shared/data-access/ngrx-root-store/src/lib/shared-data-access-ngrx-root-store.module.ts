@@ -35,4 +35,4 @@ const environment = {
     !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
 })
-export class SharedDataAccessNgrxRootStoreModule {}
+export class NgrxRootStoreModule {}
