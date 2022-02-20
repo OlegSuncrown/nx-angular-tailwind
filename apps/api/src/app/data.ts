@@ -1,7 +1,7 @@
 export const data = [
   {
     id: '1',
-    category: 'jazz',
+    genre: 'jazz',
     data: [
       {
         id: '1-1',
@@ -39,7 +39,7 @@ export const data = [
   },
   {
     id: '2',
-    category: 'rock',
+    genre: 'rock',
     data: [
       {
         id: '2-1',
@@ -77,7 +77,7 @@ export const data = [
   },
   {
     id: '3',
-    category: 'pop',
+    genre: 'pop',
     data: [
       {
         id: '3-1',
@@ -115,7 +115,7 @@ export const data = [
   },
   {
     id: '4',
-    category: 'Neo Classic',
+    genre: 'soundtrack',
     data: [
       {
         id: '4-1',
