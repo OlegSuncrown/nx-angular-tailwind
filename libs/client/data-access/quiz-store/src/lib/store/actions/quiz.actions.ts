@@ -1,10 +1,10 @@
 import { createAction, props } from '@ngrx/store';
 
-enum Actions {
+enum QuizActions {
   setPlayerName = '[Quiz] Set Name',
 }
 
 export const setPlayerName = createAction(
-  Actions.setPlayerName,
+  QuizActions.setPlayerName,
   props<{ name: string }>()
 );

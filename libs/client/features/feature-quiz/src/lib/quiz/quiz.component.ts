@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { selectGameQuizState } from '@nx/client/data-access/quiz-store';
+import { loadQuizData, selectGameQuizState } from '@nx/client/data-access/quiz-store';
 
 @Component({
   selector: 'nx-quiz',
@@ -12,5 +12,7 @@ export class QuizComponent implements OnInit {
   game$ = this.store.select(selectGameQuizState);
 
   constructor(private store: Store) {}
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.store.dispatch(loadQuizData())
+  }
 }
