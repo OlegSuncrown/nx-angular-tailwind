@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { apiQuizActions } from '../actions';
+import { loadQuizData, loadQuizDataFailure, loadQuizDataSuccess } from '../actions';
 
 export const apiQuizFeatureKey = 'apiQuizState';
 
@@ -18,21 +18,21 @@ export const initialState: State = {
 export const reducer = createReducer(
   initialState,
 
-  on(apiQuizActions.loadQuizData, (state) => ({
+  on(loadQuizData, (state) => ({
     ...state,
     isLoading: true,
     isLoaded: false,
     error: null,
   })),
 
-  on(apiQuizActions.loadQuizDataSuccess, (state) => ({
+  on(loadQuizDataSuccess, (state) => ({
     ...state,
     isLoading: false,
     isLoaded: true,
     error: null,
   })),
 
-  on(apiQuizActions.loadQuizDataFailure, (state, { error }) => ({
+  on(loadQuizDataFailure, (state, { error }) => ({
     ...state,
     error,
     isLoading: false,

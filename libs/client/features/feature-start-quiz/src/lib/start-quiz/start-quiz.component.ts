@@ -1,26 +1,19 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { setPlayerName } from '@nx/client/data-access/quiz-store';
 
 @Component({
   selector: 'nx-start-quiz',
   templateUrl: './start-quiz.component.html',
-  styleUrls: ['./start-quiz.component.scss']
+  styleUrls: ['./start-quiz.component.scss'],
 })
 export class StartQuizComponent {
-  nameControl: FormControl = new FormControl('')
+  nameControl: FormControl = new FormControl('');
+
+  constructor(private store: Store) {}
+
+  onSetName(name: string) {
+    this.store.dispatch(setPlayerName({ name }));
+  }
 }
-// import { Component, OnInit } from '@angular/core';
-
-// @Component({
-//   selector: 'nx-start-quiz',
-//   templateUrl: './start-quiz.component.html',
-//   styleUrls: ['./start-quiz.component.css']
-// })
-// export class StartQuizComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit(): void {
-//   }
-
-// }

@@ -15,9 +15,12 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["libs/shared/types/api-quiz/src/**/*.ts", "libs/shared/types/api-quiz/src/**/*.html"]
+        "lintFilePatterns": [
+          "libs/shared/types/api-quiz/src/**/*.ts",
+          "libs/shared/types/api-quiz/src/**/*.html"
+        ]
       }
     }
   },
-  "tags": []
+  "tags": ["type:lib", "scope:shared"]
 }

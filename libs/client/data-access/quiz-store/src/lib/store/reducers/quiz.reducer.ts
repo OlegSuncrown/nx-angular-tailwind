@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
-import { apiQuizActions, quizActions } from '../actions';
 import { QuizSection } from '@nx/shared/types/api-quiz';
+import { loadQuizDataSuccess, setPlayerName } from '../actions';
 
 export const quizGameFeatureKey = 'gameQuizState';
 
@@ -18,6 +18,6 @@ export const initialState: State = {
 
 export const reducer = createReducer(
   initialState,
-  on(apiQuizActions.loadQuizDataSuccess, (state, { data }) => ({ ...state, data })),
-  on(quizActions.setPlayerName, (state, { name }) => ({ ...state, name }))
+  on(loadQuizDataSuccess, (state, { data }) => ({ ...state, data })),
+  on(setPlayerName, (state, { name }) => ({ ...state, name }))
 );
