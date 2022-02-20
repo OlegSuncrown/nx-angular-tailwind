@@ -13,7 +13,7 @@ export class StartQuizComponent {
 
   constructor(private store: Store) {}
 
-  onSetName(name: string) {
-    this.store.dispatch(setPlayerName({ name }));
+  onSetName(playerName: string) {
+    this.store.dispatch(setPlayerName({ playerName }));
   }
 }

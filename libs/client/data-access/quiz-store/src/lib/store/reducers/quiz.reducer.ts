@@ -5,19 +5,21 @@ import { loadQuizDataSuccess, setPlayerName } from '../actions';
 export const quizGameFeatureKey = 'gameQuizState';
 
 export interface State {
-  name: string;
+  playerName: string;
   score: number;
+  currentLevel: number;
   data: QuizSection[];
 }
 
 export const initialState: State = {
-  name: '',
+  playerName: '',
   score: 0,
+  currentLevel: 0,
   data: [],
 };
 
 export const reducer = createReducer(
   initialState,
   on(loadQuizDataSuccess, (state, { data }) => ({ ...state, data })),
-  on(setPlayerName, (state, { name }) => ({ ...state, name }))
+  on(setPlayerName, (state, { playerName }) => ({ ...state, playerName }))
 );

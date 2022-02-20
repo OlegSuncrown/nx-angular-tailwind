@@ -1,7 +1,45 @@
 <div class="bg-quiz-800 flex flex-col text-xs h-8 border-b-2 border-quiz-700">
   <div class="h-[4px] bg-slate-600 relative">
-    <!-- (100 - (100 / 4/ 2) ) / 4 - 1 -->
-    <!-- 29 + 29 + 29 + 13 -->
+    <!-- (100 - (100 / 4/ 2) ) / 4 - 1
+    29 + 29 + 29 + 13 -->
+    <div class="h-full w-[0%] indicator-current absolute top-0 left-0 z-[1]"></div>
+    <div class="h-full w-[29%] indicator-completed absolute top-0 left-0 z-[2]"></div>
+  </div>
+  <ul class="flex flex-1 items-center justify-between uppercase list-none px-12 text-gray-200">
+    <ng-container *ngFor="let item of data; index as i; last as isLast">
+      <li class="flex items-center" [ngClass]="{'text-quiz-300': i <= currentLevel}">
+        {{item.category}}
+      </li>
+      <li class="flex items-center" [ngClass]="{'text-quiz-300': i <= currentLevel}" *ngIf="!isLast">
+        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path
+            fill-rule="evenodd"
+            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+            clip-rule="evenodd"
+          ></path>
+        </svg>
+      </li>
+    </ng-container>
+
+  
+    <!-- <li class="flex items-center text-white">
+      Pop
+    </li>
+    <li class="flex items-center text-white">
+      <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path
+          fill-rule="evenodd"
+          d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+          clip-rule="evenodd"
+        ></path>
+      </svg>
+    </li>  -->
+  </ul>
+</div>
+<!-- <div class="bg-quiz-800 flex flex-col text-xs h-8 border-b-2 border-quiz-700">
+  <div class="h-[4px] bg-slate-600 relative">
+    (100 - (100 / 4/ 2) ) / 4 - 1
+    29 + 29 + 29 + 13
     <div class="h-full w-[0%] indicator-current absolute top-0 left-0 z-[1]"></div>
     <div class="h-full w-[29%] indicator-completed absolute top-0 left-0 z-[2]"></div>
   </div>
@@ -46,59 +84,4 @@
       Techno
     </li>    
   </nav>
-</div>
-<!-- <nav class="bg-quiz-800 text-sm h-10 flex uppercase list-none border-b-2 border-quiz-700">
-  <div class="flex-1 flex flex-col">
-    <div class="h-[4px] bg-slate-200">
-      <div class="h-full bg-quiz-300"></div>
-    </div>
-    <li class="text-white flex-1 flex items-center justify-between px-8">
-      R&B
-      <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-        <path
-          fill-rule="evenodd"
-          d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-          clip-rule="evenodd"
-        ></path>
-      </svg>
-    </li>
-  </div>
-  <div class="flex-1 flex flex-col">
-    <div class="h-[4px] bg-slate-200">
-      <div class="h-[4px] indicator-completed"></div>
-    </div>
-    <li class="text-white flex-1 flex items-center justify-between px-8">
-      R&B
-      <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-        <path
-          fill-rule="evenodd"
-          d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-          clip-rule="evenodd"
-        ></path>
-      </svg>
-    </li>
-  </div>
-  <div class="flex-1 flex flex-col">
-    <div class="h-[4px] bg-slate-600">
-      <div class="h-[4px] indicator-current"></div>
-    </div>
-    <li class="text-white flex-1 flex items-center justify-between px-8">
-      R&B
-      <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-        <path
-          fill-rule="evenodd"
-          d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-          clip-rule="evenodd"
-        ></path>
-      </svg>
-    </li>
-  </div>
-  <div class="flex-1 flex flex-col">
-    <div class="h-[4px] bg-slate-600">
-      <div class="h-[4px]"></div>
-    </div>
-    <li class="text-white flex-1 flex items-center justify-between px-8">
-      SOUL
-    </li>
-  </div>
-</nav> -->
+</div> -->

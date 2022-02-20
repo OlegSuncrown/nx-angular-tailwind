@@ -6,5 +6,5 @@ enum QuizActions {
 
 export const setPlayerName = createAction(
   QuizActions.setPlayerName,
-  props<{ name: string }>()
+  props<{ playerName: string }>()
 );

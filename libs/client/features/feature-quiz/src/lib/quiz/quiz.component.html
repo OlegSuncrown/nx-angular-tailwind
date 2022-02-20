@@ -1,9 +1,9 @@
 <div class="container mx-auto px-24 py-16">
-  <ng-container *ngIf="game$ | async as vm">
-    <nx-quiz-score-bar [name]="vm.name" [score]="vm.score"></nx-quiz-score-bar>
-    <nx-quiz-nav></nx-quiz-nav>
+  <ng-container *ngIf="game$ | async as game">
+    <nx-quiz-score-bar [name]="game.playerName" [score]="game.score"></nx-quiz-score-bar>
+    <nx-quiz-nav [data]="game.data" [currentLevel]="game.currentLevel"></nx-quiz-nav>
 
-    <div *ngFor="let section of vm.data" class="text-white">
+    <!-- <div *ngFor="let section of game.data" class="text-white">
       <div>
         {{section.category}}
       </div>
@@ -12,8 +12,8 @@
         <audio controls>
           <source [src]="'https://levi9-song-quiz.herokuapp.com/api/' + item.audio" >
         </audio>
-        <!-- <img [src]="'https://levi9-song-quiz.herokuapp.com/api/' + item.image" alt=""> -->
+        <img [src]="'https://levi9-song-quiz.herokuapp.com/api/' + item.image" alt="">
       </div>
-    </div>
+    </div> -->
   </ng-container>
 </div>
