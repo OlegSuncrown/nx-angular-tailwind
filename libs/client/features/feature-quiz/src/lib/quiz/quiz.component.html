@@ -3,6 +3,9 @@
     <nx-quiz-score-bar [name]="game.playerName" [score]="game.score"></nx-quiz-score-bar>
     <nx-quiz-nav [data]="game.data" [currentLevel]="game.currentLevel"></nx-quiz-nav>
 
+    <ng-container *ngIf="currentQuestion$ | async as currentQuestion">
+      <pre>{{currentQuestion | json}}</pre>
+    </ng-container>
     <!-- <div *ngFor="let section of game.data" class="text-white">
       <div>
         {{section.genre}}
