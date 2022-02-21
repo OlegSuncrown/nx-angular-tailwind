@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/shared/utils/generate-random-num",
+  "sourceRoot": "libs/shared/utils/generate-random-num/src",
+  "prefix": "nx",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/utils/generate-random-num"],
+      "options": {
+        "jestConfig": "libs/shared/utils/generate-random-num/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/utils/generate-random-num/src/**/*.ts",
+          "libs/shared/utils/generate-random-num/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:lib", "scope:shared"]
+}

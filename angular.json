@@ -17,6 +17,7 @@
     "client-ui-quiz-score": "libs/client/ui/quiz-score",
     "shared-data-access-ngrx-root-store": "libs/shared/data-access/ngrx-root-store",
     "shared-types-api-quiz": "libs/shared/types/api-quiz",
+    "shared-utils-generate-random-num": "libs/shared/utils/generate-random-num",
     "tailwind-preset": "libs/shared/styles/tailwind-preset"
   }
 }

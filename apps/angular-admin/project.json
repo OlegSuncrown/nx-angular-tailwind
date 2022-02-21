@@ -72,7 +72,10 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["apps/angular-admin/src/**/*.ts", "apps/angular-admin/src/**/*.html"]
+        "lintFilePatterns": [
+          "apps/angular-admin/src/**/*.ts",
+          "apps/angular-admin/src/**/*.html"
+        ]
       }
     },
     "test": {
