@@ -1,7 +1,10 @@
 import { createReducer, on } from '@ngrx/store';
 import { QuizItem, QuizSection } from '@nx/shared/types/api-quiz';
-import { loadQuizDataSuccess, setPlayerName } from '../actions';
 import { generateRandomNum } from '@nx/shared/utils/generate-random-num';
+
+// Actions
+import * as apiActions from '../actions/api-quiz.actions';
+import * as quizActions from '../actions/quiz.actions';
 
 export const quizGameFeatureKey = 'gameQuizState';
 
@@ -25,11 +28,23 @@ export const initialState: State = {
 
 export const reducer = createReducer(
   initialState,
-  on(loadQuizDataSuccess, (state, { data }) => {
-    const currentSection = data[state.currentLevel];
-    const randomIndex = generateRandomNum(data.length - 1);
-    const currentQuestion = currentSection.data[randomIndex];
-    return { ...state, data, currentQuestion }
+  on(apiActions.loadQuizDataSuccess, (state, { data }) => {
+    return { ...state, data };
   }),
-  on(setPlayerName, (state, { playerName }) => ({ ...state, playerName }))
+  on(quizActions.setPlayerName, (state, { playerName }) => ({ ...state, playerName })),
+  on(quizActions.nextLevel, (state) => {
+    if (state.currentLevel > state.data.length - 1) {
+      return { ...state };
+    }
+    return { ...state, currentLevel: state.currentLevel + 1 };
+  }),
+  on(quizActions.nextLevelSuccess, (state) => {
+    const currentSection = state.data[state.currentLevel];
+    const randomIndex = generateRandomNum(state.data.length - 1);
+    const currentQuestion = currentSection.data[randomIndex];
+    return { ...state, currentQuestion, isCompleted: false };
+  }),
+  on(quizActions.gameOver, (state) => {
+    return { ...state, currentQuestion: null };
+  })
 );
