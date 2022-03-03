@@ -18,3 +18,22 @@ export const selectGameQuizState = createSelector(
 export const selectCurrentQuestion = createSelector(selectGameQuizState, (quizState) => {
   return quizState.currentQuestion;
 });
+
+export const selectProgressAnimation = createSelector(
+  selectGameQuizState,
+  (quizState) => {
+    if (quizState.data.length) {
+      const lastProgressItem = 100 / quizState.data.length / 2;
+      const progressFrame = (100 - lastProgressItem) / (quizState.data.length - 1);
+
+      // If last question completed progress bar width is 100%
+      if(quizState.currentLevel >= quizState.data.length - 1) {
+        return 100
+      }
+      
+      return progressFrame * (quizState.currentLevel + 1);
+    }
+
+    return 0;
+  }
+);
