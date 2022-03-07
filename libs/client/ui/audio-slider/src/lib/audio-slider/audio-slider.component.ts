@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'nx-audio-slider',
   templateUrl: './audio-slider.component.html',
   styleUrls: ['./audio-slider.component.scss']
 })
-export class AudioSliderComponent implements OnInit {
+export class AudioSliderComponent {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  // ngOnInit(): void {
+  // }
 
+  onChange($event: any) {
+    console.log($event)
+  }
 }

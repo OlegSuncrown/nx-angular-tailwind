@@ -3,6 +3,9 @@
     <nx-quiz-score-bar [name]="game.playerName" [score]="game.score"></nx-quiz-score-bar>
     <nx-quiz-nav *ngIf="game.data.length" [progressAnimation]="progressAnimation$ | async" [data]="game.data" [currentLevel]="game.currentLevel"></nx-quiz-nav>
 
+    <div class="my-5">
+      <nx-audio-slider></nx-audio-slider>
+    </div>
     <ng-container *ngIf="currentQuestion$ | async as currentQuestion">
       <pre>{{currentQuestion | json}}</pre>
     </ng-container>
