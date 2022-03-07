@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/client/ui/audio-slider",
+  "sourceRoot": "libs/client/ui/audio-slider/src",
+  "prefix": "nx",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/ui/audio-slider"],
+      "options": {
+        "jestConfig": "libs/client/ui/audio-slider/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/client/ui/audio-slider/src/**/*.ts",
+          "libs/client/ui/audio-slider/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
