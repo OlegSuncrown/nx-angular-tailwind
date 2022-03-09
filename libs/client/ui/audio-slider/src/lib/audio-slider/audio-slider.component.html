@@ -1,7 +1,17 @@
-<div class="slider-container">
+<div class="slider-container" [ngStyle]="{ height: height + 'px' }">
   <div class="progress-bar" #progressBar>
-    <div class="progress-bar-background"></div>
-    <div class="progress-bar-cover" [ngStyle]="{ width: width }"></div>
+    <div class="progress-bar-background bg-quiz-700"></div>
+    <div class="progress-bar-cover bg-quiz-300" [ngStyle]="{ width: trackFillWidth + 'px' }"></div>
   </div>
-  <input type="range" value="0" step="1" class="range" (input)="onChange($event)" />
+  <input
+    [style.--thumb-width]="thumbWidth + 'px'"
+    [style.--thumb-height]="thumbHeight + 'px'"
+    type="range"
+    min="0"
+    max="100"
+    value="0"
+    step="1"
+    class="range"
+    (input)="onChange($event)"
+  />
 </div>
