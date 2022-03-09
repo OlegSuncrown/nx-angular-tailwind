@@ -19,6 +19,9 @@
       "@nx/client/data-access/quiz-store": [
         "libs/client/data-access/quiz-store/src/index.ts"
       ],
+      "@nx/client/features/feature-question-card": [
+        "libs/client/features/feature-question-card/src/index.ts"
+      ],
       "@nx/client/features/feature-quiz": [
         "libs/client/features/feature-quiz/src/index.ts"
       ],

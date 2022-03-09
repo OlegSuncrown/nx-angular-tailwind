@@ -1,13 +1,17 @@
 <div class="container mx-auto lg:px-24 py-16 md:px-16 px-6">
   <ng-container *ngIf="game$ | async as game">
     <nx-quiz-score-bar [name]="game.playerName" [score]="game.score"></nx-quiz-score-bar>
-    <nx-quiz-nav *ngIf="game.data.length" [progressAnimation]="progressAnimation$ | async" [data]="game.data" [currentLevel]="game.currentLevel"></nx-quiz-nav>
+    <nx-quiz-nav
+      *ngIf="game.data.length"
+      [progressAnimation]="progressAnimation$ | async"
+      [data]="game.data"
+      [currentLevel]="game.currentLevel"
+    ></nx-quiz-nav>
 
-    <div class="py-5">
-      <nx-audio-slider></nx-audio-slider>
-    </div>
+    <nx-question-card></nx-question-card>
+    
     <ng-container *ngIf="currentQuestion$ | async as currentQuestion">
-      <pre>{{currentQuestion | json}}</pre>
+      <pre>{{ currentQuestion | json }}</pre>
     </ng-container>
     <!-- <div *ngFor="let section of game.data" class="text-white">
       <div>
@@ -23,7 +27,12 @@
     </div> -->
     <button type="submit" quizButton (click)="onStartNewLevel()">
       Start Quiz
-      <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <svg
+        class="ml-2 -mr-1 w-5 h-5"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <path
           fill-rule="evenodd"
           d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"

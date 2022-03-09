@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/client/features/feature-question-card",
+  "sourceRoot": "libs/client/features/feature-question-card/src",
+  "prefix": "nx",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/features/feature-question-card"],
+      "options": {
+        "jestConfig": "libs/client/features/feature-question-card/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/client/features/feature-question-card/src/**/*.ts",
+          "libs/client/features/feature-question-card/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["scope:client", "type:lib"]
+}

@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ClientUiQuizScoreModule } from '@nx/client/ui/quiz-score';
 import { ClientUiQuizNavModule } from '@nx/client/ui/quiz-nav';
 import { ClientUiQuizButtonModule } from '@nx/client/ui/quiz-button';
-import { ClientUiAudioSliderModule } from '@nx/client/ui/audio-slider';
+import { ClientFeatureQuestionCardModule } from '@nx/client/features/feature-question-card';
 
 const routes: Routes = [{ path: '', component: QuizComponent }];
 
@@ -16,7 +16,7 @@ const routes: Routes = [{ path: '', component: QuizComponent }];
     ClientUiQuizNavModule,
     ClientUiQuizScoreModule,
     ClientUiQuizButtonModule,
-    ClientUiAudioSliderModule,
+    ClientFeatureQuestionCardModule,
     RouterModule.forChild(routes),
   ],
   declarations: [QuizComponent],
