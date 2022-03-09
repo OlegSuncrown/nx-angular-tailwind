@@ -7,6 +7,7 @@
     "angular-client-e2e": "apps/angular-client-e2e",
     "api": "apps/api",
     "client-assets": "libs/client/assets",
+    "client-data-access-player-store-player-store": "libs/client/data-access/player-store/player-store",
     "client-data-access-quiz-store": "libs/client/data-access/quiz-store",
     "client-features-feature-question-card": "libs/client/features/feature-question-card",
     "client-features-feature-quiz": "libs/client/features/feature-quiz",

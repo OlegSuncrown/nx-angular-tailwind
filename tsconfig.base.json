@@ -16,6 +16,9 @@
     "baseUrl": ".",
     "paths": {
       "@nx/client-features-shell": ["libs/client/features/shell/src/index.ts"],
+      "@nx/client/data-access/player-store/player-store": [
+        "libs/client/data-access/player-store/player-store/src/index.ts"
+      ],
       "@nx/client/data-access/quiz-store": [
         "libs/client/data-access/quiz-store/src/index.ts"
       ],

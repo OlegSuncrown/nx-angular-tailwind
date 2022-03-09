@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/client/data-access/player-store/player-store",
+  "sourceRoot": "libs/client/data-access/player-store/player-store/src",
+  "prefix": "nx",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/data-access/player-store/player-store"],
+      "options": {
+        "jestConfig": "libs/client/data-access/player-store/player-store/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/client/data-access/player-store/player-store/src/**/*.ts",
+          "libs/client/data-access/player-store/player-store/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["scope:client", "type:lib"]
+}
