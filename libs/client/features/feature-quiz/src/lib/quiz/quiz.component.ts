@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { loadQuizData, nextLevel, selectCurrentQuestion, selectGameQuizState, selectProgressAnimation } from '@nx/client/data-access/quiz-store';
+import * as quizStore from '@nx/client/data-access/quiz-store';
 
 @Component({
   selector: 'nx-quiz',
@@ -9,15 +9,17 @@ import { loadQuizData, nextLevel, selectCurrentQuestion, selectGameQuizState, se
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class QuizComponent implements OnInit {
-  game$ = this.store.select(selectGameQuizState);
-  currentQuestion$ = this.store.select(selectCurrentQuestion)
-  progressAnimation$ = this.store.select(selectProgressAnimation)
+  game$ = this.store.select(quizStore.selectGameQuizState);
+  currentQuestion$ = this.store.select(quizStore.selectCurrentQuestion);
+  currentGenre$ = this.store.select(quizStore.selectCurrentGenre)
+  progressAnimation$ = this.store.select(quizStore.selectProgressAnimation);
 
   constructor(private store: Store) {}
   ngOnInit(): void {
-    this.store.dispatch(loadQuizData())
+    this.store.dispatch(quizStore.loadQuizData());
   }
+
   onStartNewLevel() {
-    this.store.dispatch(nextLevel())
+    this.store.dispatch(quizStore.nextLevel());
   }
 }

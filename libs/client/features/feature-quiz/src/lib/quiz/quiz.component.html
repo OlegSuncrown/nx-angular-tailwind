@@ -6,13 +6,33 @@
       [progressAnimation]="progressAnimation$ | async"
       [data]="game.data"
       [currentLevel]="game.currentLevel"
+      class="mb-8"
     ></nx-quiz-nav>
 
-    <nx-question-card></nx-question-card>
-    
-    <ng-container *ngIf="currentQuestion$ | async as currentQuestion">
+    <div class="grid grid-cols-3 gap-8 mb-8">
+      <div>
+        <h2 class="text-gray-100 !text-3xl mb-3">
+          <span class="capitalize">{{ currentGenre$ | async }}</span>
+          <span> song</span>
+        </h2>
+
+        <p class="text-gray-400 mb-3">
+          Listen to the audio guess what song is it from the list
+        </p>
+
+        <nx-question-card></nx-question-card>
+      </div>
+      <div class="col-span-2 bg-slate-800">
+        Hello
+      </div>
+    </div>
+
+    <!-- <ng-container *ngIf="currentQuestion$ | async as currentQuestion">
       <pre>{{ currentQuestion | json }}</pre>
-    </ng-container>
+    </ng-container> -->
+
+    <!-- <pre>{{ game | json }}</pre> -->
+
     <!-- <div *ngFor="let section of game.data" class="text-white">
       <div>
         {{section.genre}}

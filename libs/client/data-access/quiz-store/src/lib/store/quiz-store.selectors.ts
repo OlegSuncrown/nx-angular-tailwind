@@ -37,3 +37,10 @@ export const selectProgressAnimation = createSelector(
     return 0;
   }
 );
+
+export const selectCurrentGenre = createSelector(
+  selectGameQuizState,
+  (quizState) => {
+    return quizState?.data[quizState.currentLevel]?.genre;
+  }
+);

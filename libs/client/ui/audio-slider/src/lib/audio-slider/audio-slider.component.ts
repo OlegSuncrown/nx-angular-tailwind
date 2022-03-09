@@ -11,13 +11,10 @@ export class AudioSliderComponent {
   progressBar: ElementRef | undefined;
   height = 4;
   trackFillWidth = 0;
-  thumbWidth = 10;
-  thumbHeight = 10;
+  thumbWidth = 12;
+  thumbHeight = 12;
   
   constructor() {}
-
-  // ngOnInit(): void {
-  // }
 
   onChange($event: any) {
     const currentValue = $event.target.value;
