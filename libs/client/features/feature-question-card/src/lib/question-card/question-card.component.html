@@ -4,3 +4,11 @@
   </div>
   <nx-audio-slider class="flex-1"></nx-audio-slider>
 </div>
+<h1 class="text-white">
+  <pre>{{ vm$ | async | json }}</pre>
+</h1>
+<div class="mb-5">
+  <button  class="mr-3 bg-slate-100 p-5" (click)="loadSong()">Load</button>
+  <button  class="mr-3 bg-slate-100 p-5" (click)="playOne()">Play</button>
+  <button  class="mr-3 bg-slate-100 p-5" (click)="playTwo()">Pause</button>
+</div>
