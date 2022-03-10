@@ -22,9 +22,6 @@ const initialState: PlayerStoreState = {
   error: false,
 };
 
-// @Injectable({
-//   providedIn: 'root',
-// })
 @Injectable()
 export class PlayerStoreStore extends ComponentStore<PlayerStoreState> {
   audioEvents = [
@@ -101,7 +98,7 @@ export class PlayerStoreStore extends ComponentStore<PlayerStoreState> {
   loadAudio(url: string) {
     this.audioObj.src = url;
     this.audioObj.load();
-    this.audioObj.volume = 0.5;
+    this.audioObj.volume = 0.1;
   }
 
   play() {

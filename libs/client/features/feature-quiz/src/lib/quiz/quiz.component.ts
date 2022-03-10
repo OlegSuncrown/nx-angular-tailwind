@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { PlayerStoreStore } from '@nx/client/data-access/player-store/player-store';
 import * as quizStore from '@nx/client/data-access/quiz-store';
 
 @Component({
