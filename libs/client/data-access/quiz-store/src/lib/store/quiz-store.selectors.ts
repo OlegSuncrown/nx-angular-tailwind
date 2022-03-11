@@ -27,10 +27,10 @@ export const selectProgressAnimation = createSelector(
       const progressFrame = (100 - lastProgressItem) / (quizState.data.length - 1);
 
       // If last question completed progress bar width is 100%
-      if(quizState.currentLevel >= quizState.data.length - 1) {
-        return 100
+      if (quizState.currentLevel >= quizState.data.length - 1) {
+        return 100;
       }
-      
+
       return progressFrame * (quizState.currentLevel + 1);
     }
 
@@ -38,9 +38,10 @@ export const selectProgressAnimation = createSelector(
   }
 );
 
-export const selectCurrentGenre = createSelector(
-  selectGameQuizState,
-  (quizState) => {
-    return quizState?.data[quizState.currentLevel]?.genre;
-  }
-);
+export const selectCurrentGenre = createSelector(selectGameQuizState, (quizState) => {
+  return quizState?.data[quizState.currentLevel]?.genre;
+});
+
+export const selectOptionSection = createSelector(selectGameQuizState, (quizState) => {
+  return quizState?.data[quizState.currentLevel]?.data;
+});

@@ -13,6 +13,7 @@ export class QuizComponent implements OnInit {
   currentQuestion$ = this.store.select(quizStore.selectCurrentQuestion);
   currentGenre$ = this.store.select(quizStore.selectCurrentGenre);
   progressAnimation$ = this.store.select(quizStore.selectProgressAnimation);
+  optionSection$ = this.store.select(quizStore.selectOptionSection)
 
   constructor(private store: Store) {}
   

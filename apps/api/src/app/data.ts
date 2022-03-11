@@ -30,7 +30,7 @@ export const data = [
       {
         id: '1-4',
         name: 'John Coltrane',
-        songTitle: '',
+        songTitle: 'Everytime We Say Goodbye',
         image: 'images/1-4.jpg',
         audio: 'audio/1-4.mp3',
         description: `John William Coltrane (September 23, 1926 - July 17, 1967) was an American jazz saxophonist and composer. Working in the bebop and hard bop idioms early in his career, Coltrane helped pioneer the use of modes and was one of the players at the forefront of free jazz. He led at least fifty recording sessions and appeared on many albums by other musicians, including trumpeter Miles Davis and pianist Thelonious Monk.`,
