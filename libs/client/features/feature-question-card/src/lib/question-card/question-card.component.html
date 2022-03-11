@@ -1,16 +1,23 @@
 <ng-container *ngIf="vm$ | async as vm">
   <div class="bg-quiz-700 p-5 rounded-md flex items-center">
-    <div class="bg-[url('/assets/images/unknown-song.png')] w-20 h-20 mr-4 bg-cover bg-center bg-no-repeat flex items-center justify-center justify-items-center">
+    <div
+      class="bg-[url('/assets/images/unknown-song.png')] w-20 h-20 mr-4 bg-cover bg-center bg-no-repeat flex items-center justify-center justify-items-center"
+    >
       <button class="block h-14 w-14 bg-slate-200 rounded-full"></button>
     </div>
-    <nx-audio-slider [max]="vm.duration" [value]="vm.currentTime" class="flex-1"></nx-audio-slider>
+    <nx-audio-slider
+      (emitValue)="onChange($event)"
+      [max]="vm.duration"
+      [value]="vm.currentTime"
+      class="flex-1"
+    ></nx-audio-slider>
   </div>
   <h1 class="text-white">
-    <pre>{{ vm | json}}</pre>
+    <pre>{{ vm | json }}</pre>
   </h1>
   <div class="mb-5">
-    <button  class="mr-3 bg-slate-100 p-5" (click)="loadSong()">Load</button>
-    <button  class="mr-3 bg-slate-100 p-5" (click)="playOne()">Play</button>
-    <button  class="mr-3 bg-slate-100 p-5" (click)="playTwo()">Pause</button>
+    <button class="mr-3 bg-slate-100 p-5" (click)="loadSong()">Load</button>
+    <button class="mr-3 bg-slate-100 p-5" (click)="playOne()">Play</button>
+    <button class="mr-3 bg-slate-100 p-5" (click)="playTwo()">Pause</button>
   </div>
 </ng-container>

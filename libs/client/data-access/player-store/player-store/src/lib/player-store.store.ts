@@ -16,7 +16,7 @@ const initialState: PlayerStoreState = {
   playing: false,
   readableCurrentTime: '',
   readableDuration: '',
-  duration: 0,
+  duration: 100,
   currentTime: 0,
   canplay: false,
   error: false,

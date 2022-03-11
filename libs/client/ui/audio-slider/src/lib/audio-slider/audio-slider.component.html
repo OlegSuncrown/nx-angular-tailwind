@@ -1,16 +1,19 @@
 <div class="slider-container" [ngStyle]="{ height: height + 'px' }">
   <div class="progress-bar" #progressBar>
     <div class="progress-bar-background bg-quiz-800"></div>
-    <div class="progress-bar-cover bg-quiz-300" [ngStyle]="{ width: trackFillWidth + 'px' }"></div>
+    <div
+      class="progress-bar-cover bg-quiz-300"
+      [ngStyle]="{ width: thumbWidth + (progressBar.getBoundingClientRect().width / max) * value - (thumbWidth / max) * value + 'px' }"
+    ></div>
   </div>
   <input
     [style.--thumb-width]="thumbWidth + 'px'"
     [style.--thumb-height]="thumbHeight + 'px'"
     type="range"
     min="0"
-    [max]="max"
+    [max]="max || 100"
     [value]="value"
-    step="1"
+    step="0.1"
     class="range"
     (input)="onChange($event)"
   />

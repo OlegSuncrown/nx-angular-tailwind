@@ -2,7 +2,9 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
+  EventEmitter,
   Input,
+  Output,
   ViewChild,
 } from '@angular/core';
 
@@ -15,9 +17,10 @@ import {
 export class AudioSliderComponent {
   @Input() value = 0;
   @Input() max = 100;
-  @ViewChild('progressBar')
-  progressBar: ElementRef | undefined;
-  height = 4;
+  @Output() emitValue = new EventEmitter<number>()
+  @ViewChild('progressBar') progressBar: ElementRef | undefined;
+
+  height = 8;
   trackFillWidth = 0;
   thumbWidth = 12;
   thumbHeight = 12;
@@ -25,13 +28,10 @@ export class AudioSliderComponent {
   constructor() {}
 
   onChange($event: any) {
-    console.log($event.target.value);
-    const currentValue = $event.target.value;
-    const progressBarWidth =
-      this.progressBar?.nativeElement.getBoundingClientRect().width;
-    this.trackFillWidth =
-      this.thumbWidth +
-      (progressBarWidth / this.max) * currentValue -
-      (this.thumbWidth / this.max) * currentValue;
+    const currentValue = +$event.target.value;
+    this.emitValue.emit(currentValue)
+    // const currentValue = $event.target.value;
+    // const progressBarWidth = this.progressBar?.nativeElement.getBoundingClientRect().width;
+    // this.trackFillWidth = this.thumbWidth + (progressBarWidth / this.max) * currentValue - (this.thumbWidth / this.max) * currentValue;
   }
 }

@@ -28,7 +28,11 @@ export class QuestionCardComponent implements OnInit {
   }
 
   playTwo() {
-    // const song = 'https://levi9-song-quiz.herokuapp.com/api/audio/2-2.mp3'
     this.playerStore.pause();
+  }
+
+  onChange(value: number) {
+    this.playerStore.seekTo(value);
+    console.log(value)
   }
 }
