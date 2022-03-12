@@ -1,3 +1,15 @@
-<div class="text-gray-300 font-thin p-3 bg-rose-600">
-  0{{ index + 1 }} - {{ option.songTitle }} - {{ option.name }}
+<div
+  [ngClass]="{
+    'bg-green-800 border-green-700': completed,
+    'bg-red-900 border-red-700': failed
+  }"
+  class="text-gray-300 font-thin px-2 py-3 border border-quiz-700 rounded-md cursor-pointer flex items-center"
+>
+  <div
+    [ngClass]="{ 'border-green-700': completed, 'border-red-700': failed }"
+    class="w-6 h-6 rounded-full border border-quiz-700 mr-3"
+  ></div>
+  <div class="mb-0 text-sm">
+    0{{ index + 1 }} - {{ option.songTitle }} - {{ option.name }}
+  </div>
 </div>

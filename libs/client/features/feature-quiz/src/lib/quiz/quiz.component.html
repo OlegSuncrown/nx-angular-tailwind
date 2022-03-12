@@ -8,8 +8,8 @@
       [currentLevel]="game.currentLevel"
     ></nx-quiz-nav>
 
-    <div class="grid xl:grid-cols-3 gap-8 mb-8 bg-quiz-800 py-8 px-12">
-      <div>
+    <div class="grid xl:grid-cols-12 gap-8 mb-8 bg-quiz-800 py-8 px-12">
+      <div class="col-span-5">
         <h2 class="text-gray-100 !text-3xl mb-3">
           <span class="capitalize">{{ currentGenre$ | async }}</span>
           <span> song</span>
@@ -19,13 +19,13 @@
           Listen to the audio guess what song is it from the list
         </p>
 
-        <nx-question-card [song]="(currentQuestion$ | async)?.audio"></nx-question-card>
+        <nx-question-card class="mb-6" [song]="(currentQuestion$ | async)?.audio"></nx-question-card>
         <ng-container *ngFor="let option of optionSection$ | async; index as i">
-          <nx-quiz-option-item [index]="i" [option]="option"></nx-quiz-option-item>
+          <nx-quiz-option-item class="mb-2" [index]="i" [option]="option"></nx-quiz-option-item>
         </ng-container>
       </div>
       <!-- <pre class="text-white">{{ currentQuestion$ | async | json }}</pre> -->
-      <div class="col-span-2">
+      <div class="col-span-7">
         <!-- <div *ngFor="let section of optionSection$ | async" class="text-white">
           <div
             (click)="onSelectSong(section)"

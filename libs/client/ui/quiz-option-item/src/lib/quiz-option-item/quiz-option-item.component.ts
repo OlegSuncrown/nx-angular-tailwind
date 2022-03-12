@@ -10,6 +10,8 @@ import { QuizItem } from '@nx/shared/types/api-quiz';
 export class QuizOptionItemComponent implements OnInit {
   @Input() option!: QuizItem;
   @Input() index!: number;
+  @Input() failed = false;
+  @Input() completed = false;
   
   constructor() {}
 
