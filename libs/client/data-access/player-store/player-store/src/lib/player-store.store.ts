@@ -14,8 +14,8 @@ export interface PlayerStoreState {
 
 const initialState: PlayerStoreState = {
   playing: false,
-  readableCurrentTime: '',
-  readableDuration: '',
+  readableCurrentTime: '00:00',
+  readableDuration: '00:00',
   duration: 100,
   currentTime: 0,
   canplay: false,

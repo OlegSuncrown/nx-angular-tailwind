@@ -20,7 +20,7 @@ export class AudioSliderComponent {
   @Output() emitValue = new EventEmitter<number>()
   @ViewChild('progressBar') progressBar: ElementRef | undefined;
 
-  height = 8;
+  height = 6;
   trackFillWidth = 0;
   thumbWidth = 12;
   thumbHeight = 12;

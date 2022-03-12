@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { PlayerStoreStore } from '@nx/client/data-access/player-store/player-store';
 
 @Component({
@@ -6,21 +6,24 @@ import { PlayerStoreStore } from '@nx/client/data-access/player-store/player-sto
   templateUrl: './question-card.component.html',
   styleUrls: ['./question-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [PlayerStoreStore]
+  providers: [PlayerStoreStore],
 })
-
 export class QuestionCardComponent implements OnInit {
-  vm$ = this.playerStore.vm$
+  @Input() set song(song: string | undefined | null) {
+    const url = 'https://levi9-song-quiz.herokuapp.com/api/' + song;
+    this.loadSong(url);
+  }
+
+  vm$ = this.playerStore.vm$;
 
   constructor(private playerStore: PlayerStoreStore) {}
 
   ngOnInit(): void {
-    this.playerStore.audioEvents$.subscribe()
+    this.playerStore.audioEvents$.subscribe();
   }
 
-  loadSong() {
-    const song = 'https://levi9-song-quiz.herokuapp.com/api/audio/2-4.mp3'
-    this.playerStore.loadAudio(song);
+  loadSong(url: string) {
+    this.playerStore.loadAudio(url);
   }
 
   playOne() {
@@ -33,6 +36,5 @@ export class QuestionCardComponent implements OnInit {
 
   onChange(value: number) {
     this.playerStore.seekTo(value);
-    console.log(value)
   }
 }

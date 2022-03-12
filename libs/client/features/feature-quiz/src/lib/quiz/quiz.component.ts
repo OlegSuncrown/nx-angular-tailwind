@@ -13,15 +13,19 @@ export class QuizComponent implements OnInit {
   currentQuestion$ = this.store.select(quizStore.selectCurrentQuestion);
   currentGenre$ = this.store.select(quizStore.selectCurrentGenre);
   progressAnimation$ = this.store.select(quizStore.selectProgressAnimation);
-  optionSection$ = this.store.select(quizStore.selectOptionSection)
+  optionSection$ = this.store.select(quizStore.selectOptionSection);
 
   constructor(private store: Store) {}
-  
+
   ngOnInit(): void {
     this.store.dispatch(quizStore.loadQuizData());
   }
 
   onStartNewLevel() {
     this.store.dispatch(quizStore.nextLevel());
+  }
+
+  onSelectSong(section: any) {
+    console.log(section);
   }
 }
