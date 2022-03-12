@@ -20,18 +20,21 @@
         </p>
 
         <nx-question-card [song]="(currentQuestion$ | async)?.audio"></nx-question-card>
+        <ng-container *ngFor="let option of optionSection$ | async; index as i">
+          <nx-quiz-option-item [index]="i" [option]="option"></nx-quiz-option-item>
+        </ng-container>
       </div>
       <!-- <pre class="text-white">{{ currentQuestion$ | async | json }}</pre> -->
       <div class="col-span-2">
-        <div *ngFor="let section of optionSection$ | async" class="text-white">
+        <!-- <div *ngFor="let section of optionSection$ | async" class="text-white">
           <div
             (click)="onSelectSong(section)"
             class="bg-quiz-700 shadow mb-3 cursor-pointer p-3"
           >
             {{ section.songTitle }}
           </div>
-          <!-- <img [src]="'https://levi9-song-quiz.herokuapp.com/api/' + section.image" alt="">  -->
-        </div>
+          <img [src]="'https://levi9-song-quiz.herokuapp.com/api/' + section.image" alt=""> 
+        </div> -->
       </div>
     </div>
 

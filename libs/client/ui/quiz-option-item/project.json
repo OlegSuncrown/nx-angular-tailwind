@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/client/ui/quiz-option-item",
+  "sourceRoot": "libs/client/ui/quiz-option-item/src",
+  "prefix": "nx",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/ui/quiz-option-item"],
+      "options": {
+        "jestConfig": "libs/client/ui/quiz-option-item/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/client/ui/quiz-option-item/src/**/*.ts",
+          "libs/client/ui/quiz-option-item/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["scope:client", "type:lib"]
+}

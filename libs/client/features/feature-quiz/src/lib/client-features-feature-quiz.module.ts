@@ -7,6 +7,7 @@ import { ClientUiQuizScoreModule } from '@nx/client/ui/quiz-score';
 import { ClientUiQuizNavModule } from '@nx/client/ui/quiz-nav';
 import { ClientUiQuizButtonModule } from '@nx/client/ui/quiz-button';
 import { ClientFeatureQuestionCardModule } from '@nx/client/features/feature-question-card';
+import { QuizOptionItemModule } from '@nx/client/ui/quiz-option-item';
 
 const routes: Routes = [{ path: '', component: QuizComponent }];
 
@@ -17,6 +18,7 @@ const routes: Routes = [{ path: '', component: QuizComponent }];
     ClientUiQuizScoreModule,
     ClientUiQuizButtonModule,
     ClientFeatureQuestionCardModule,
+    QuizOptionItemModule,
     RouterModule.forChild(routes),
   ],
   declarations: [QuizComponent],
