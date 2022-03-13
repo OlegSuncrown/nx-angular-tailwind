@@ -1,3 +1,5 @@
+export type SelectedOption = 'completed' | 'failed'
+
 export interface QuizItem {
   id: string;
   name: string;
@@ -6,7 +8,7 @@ export interface QuizItem {
   audio: string;
   description: string;
 
-  isSelected?: 'completed' | 'failed';
+  isSelected?: SelectedOption;
 }
 
 export interface QuizSection {

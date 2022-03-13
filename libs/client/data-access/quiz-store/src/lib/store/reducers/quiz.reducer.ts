@@ -12,7 +12,7 @@ export interface State {
   playerName: string;
   score: number;
   currentLevel: number;
-  isCompleted: boolean;
+  levelIsCompleted: boolean;
   data: QuizSection[];
   currentQuestion: QuizItem | null;
   selectedOptions: string[];
@@ -22,7 +22,7 @@ export const initialState: State = {
   playerName: '',
   score: 0,
   currentLevel: 0,
-  isCompleted: false,
+  levelIsCompleted: false,
   data: [],
   currentQuestion: null,
   selectedOptions: [],
@@ -51,10 +51,21 @@ export const reducer = createReducer(
     return { ...state, currentQuestion, isCompleted: false };
   }),
 
-  on(quizActions.setOption, (state, { selectedOption }) => ({
-    ...state,
-    selectedOptions: [...state.selectedOptions, selectedOption],
-  })),
+  on(quizActions.setOption, (state, { selectedOption }) => {
+    const currentQuestionId = state.currentQuestion?.id;
+
+    // Don't allow to select more if user selected right answer
+    if (currentQuestionId && state.selectedOptions.includes(currentQuestionId)) {
+      return {
+        ...state,
+        levelIsCompleted: true,
+      };
+    }
+    return {
+      ...state,
+      selectedOptions: [...state.selectedOptions, selectedOption],
+    };
+  }),
 
   on(quizActions.gameOver, (state) => {
     return { ...state, currentQuestion: null };

@@ -1,4 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { SelectedOption } from '@nx/shared/types/api-quiz';
 import { QuizState, quizFeatureKey } from './reducers';
 import { apiQuizFeatureKey } from './reducers/api-quiz.reducer';
 import { quizGameFeatureKey } from './reducers/quiz.reducer';
@@ -48,7 +49,9 @@ export const selectOptionSection = createSelector(selectGameQuizState, (quizStat
     return options.map((item) => {
       if (quizState.selectedOptions.includes(item.id)) {
         const isSelected =
-          quizState?.currentQuestion?.id === item.id ? 'completed' : 'failed';
+          quizState?.currentQuestion?.id === item.id
+            ? 'completed'
+            : ('failed' as SelectedOption);
         return { ...item, isSelected };
       }
       return item;
