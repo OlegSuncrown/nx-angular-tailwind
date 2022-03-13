@@ -15,6 +15,7 @@
     "client-features-shell": "libs/client/features/shell",
     "client-styles": "libs/client/styles",
     "client-ui-audio-slider": "libs/client/ui/audio-slider",
+    "client-ui-play-button": "libs/client/ui/play-button",
     "client-ui-quiz-button": "libs/client/ui/quiz-button",
     "client-ui-quiz-nav": "libs/client/ui/quiz-nav",
     "client-ui-quiz-option-item": "libs/client/ui/quiz-option-item",

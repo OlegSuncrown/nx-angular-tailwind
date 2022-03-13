@@ -32,6 +32,7 @@
         "libs/client/features/feature-start-quiz/src/index.ts"
       ],
       "@nx/client/ui/audio-slider": ["libs/client/ui/audio-slider/src/index.ts"],
+      "@nx/client/ui/play-button": ["libs/client/ui/play-button/src/index.ts"],
       "@nx/client/ui/quiz-button": ["libs/client/ui/quiz-button/src/index.ts"],
       "@nx/client/ui/quiz-nav": ["libs/client/ui/quiz-nav/src/index.ts"],
       "@nx/client/ui/quiz-option-item": ["libs/client/ui/quiz-option-item/src/index.ts"],
