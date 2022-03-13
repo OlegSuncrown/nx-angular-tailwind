@@ -15,6 +15,7 @@ export interface State {
   isCompleted: boolean;
   data: QuizSection[];
   currentQuestion: QuizItem | null;
+  selectedOptions: string[];
 }
 
 export const initialState: State = {
@@ -24,26 +25,37 @@ export const initialState: State = {
   isCompleted: false,
   data: [],
   currentQuestion: null,
+  selectedOptions: [],
 };
 
 export const reducer = createReducer(
   initialState,
+
   on(apiActions.loadQuizDataSuccess, (state, { data }) => {
     return { ...state, data };
   }),
+
   on(quizActions.setPlayerName, (state, { playerName }) => ({ ...state, playerName })),
+
   on(quizActions.nextLevel, (state) => {
     if (state.currentLevel > state.data.length - 1) {
       return { ...state };
     }
-    return { ...state, currentLevel: state.currentLevel + 1 };
+    return { ...state, currentLevel: state.currentLevel + 1, selectedOptions: [] };
   }),
+
   on(quizActions.nextLevelSuccess, (state) => {
     const currentSection = state.data[state.currentLevel];
     const randomIndex = generateRandomNum(state.data.length - 1);
     const currentQuestion = currentSection.data[randomIndex];
     return { ...state, currentQuestion, isCompleted: false };
   }),
+
+  on(quizActions.setOption, (state, { selectedOption }) => ({
+    ...state,
+    selectedOptions: [...state.selectedOptions, selectedOption],
+  })),
+
   on(quizActions.gameOver, (state) => {
     return { ...state, currentQuestion: null };
   })

@@ -19,9 +19,17 @@
           Listen to the audio guess what song is it from the list
         </p>
 
-        <nx-question-card class="mb-6" [song]="(currentQuestion$ | async)?.audio"></nx-question-card>
+        <nx-question-card
+          class="mb-6"
+          [song]="(currentQuestion$ | async)?.audio"
+        ></nx-question-card>
         <ng-container *ngFor="let option of optionSection$ | async; index as i">
-          <nx-quiz-option-item class="mb-2" [index]="i" [option]="option"></nx-quiz-option-item>
+          <nx-quiz-option-item
+            (click)="onSelectSong(option)"
+            class="mb-2"
+            [index]="i"
+            [option]="option"
+          ></nx-quiz-option-item>
         </ng-container>
       </div>
       <!-- <pre class="text-white">{{ currentQuestion$ | async | json }}</pre> -->

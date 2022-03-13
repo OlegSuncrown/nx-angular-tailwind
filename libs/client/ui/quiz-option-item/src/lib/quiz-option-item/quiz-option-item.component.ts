@@ -8,10 +8,8 @@ import { QuizItem } from '@nx/shared/types/api-quiz';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class QuizOptionItemComponent implements OnInit {
-  @Input() option!: QuizItem;
+  @Input() option!: any;
   @Input() index!: number;
-  @Input() failed = false;
-  @Input() completed = false;
   
   constructor() {}
 

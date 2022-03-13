@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as quizStore from '@nx/client/data-access/quiz-store';
+import { setOption } from '@nx/client/data-access/quiz-store';
+import { QuizItem } from '@nx/shared/types/api-quiz';
 
 @Component({
   selector: 'nx-quiz',
@@ -25,7 +27,7 @@ export class QuizComponent implements OnInit {
     this.store.dispatch(quizStore.nextLevel());
   }
 
-  onSelectSong(section: any) {
-    console.log(section);
+  onSelectSong(option: QuizItem) {
+    this.store.dispatch(setOption({ selectedOption: option?.id }));
   }
 }

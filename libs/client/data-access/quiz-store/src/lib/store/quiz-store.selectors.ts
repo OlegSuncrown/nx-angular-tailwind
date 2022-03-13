@@ -43,5 +43,17 @@ export const selectCurrentGenre = createSelector(selectGameQuizState, (quizState
 });
 
 export const selectOptionSection = createSelector(selectGameQuizState, (quizState) => {
-  return quizState?.data[quizState.currentLevel]?.data;
+  const options = quizState?.data?.[quizState?.currentLevel]?.data;
+  if (options) {
+    return options.map((item) => {
+      if (quizState.selectedOptions.includes(item.id)) {
+        const isSelected =
+          quizState?.currentQuestion?.id === item.id ? 'completed' : 'failed';
+        return { ...item, isSelected };
+      }
+      return item;
+    });
+  }
+
+  return options;
 });

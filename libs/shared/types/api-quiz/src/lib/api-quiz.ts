@@ -5,6 +5,8 @@ export interface QuizItem {
   image: string;
   audio: string;
   description: string;
+
+  isSelected?: 'completed' | 'failed';
 }
 
 export interface QuizSection {
