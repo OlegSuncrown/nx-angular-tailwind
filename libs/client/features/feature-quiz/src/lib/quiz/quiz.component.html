@@ -45,7 +45,7 @@
       </div>
     </div>
 
-    <button type="submit" quizButton (click)="onStartNewLevel()">
+    <button type="submit" quizButton (click)="onStartNewLevel()" [disabled]="!(isLevelCompleted$ | async)">
       Start Quiz
       <svg
         class="ml-2 -mr-1 w-5 h-5"

@@ -48,22 +48,21 @@ export const reducer = createReducer(
     const currentSection = state.data[state.currentLevel];
     const randomIndex = generateRandomNum(state.data.length - 1);
     const currentQuestion = currentSection.data[randomIndex];
-    return { ...state, currentQuestion, isCompleted: false };
+    return { ...state, currentQuestion, levelIsCompleted: false };
   }),
 
   on(quizActions.setOption, (state, { selectedOption }) => {
-    const currentQuestionId = state.currentQuestion?.id;
+    const currentQuestionId = state.currentQuestion?.id || '';
+    const levelIsCompleted =
+      selectedOption === currentQuestionId || state.levelIsCompleted;
+    const selectedOptions = state.selectedOptions.includes(currentQuestionId)
+      ? [...state.selectedOptions]
+      : [...state.selectedOptions, selectedOption];
 
-    // Don't allow to select more if user selected right answer
-    if (currentQuestionId && state.selectedOptions.includes(currentQuestionId)) {
-      return {
-        ...state,
-        levelIsCompleted: true,
-      };
-    }
     return {
       ...state,
-      selectedOptions: [...state.selectedOptions, selectedOption],
+      selectedOptions,
+      levelIsCompleted,
     };
   }),
 

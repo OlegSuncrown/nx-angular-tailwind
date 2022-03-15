@@ -1,1 +1,12 @@
-<button class="block h-14 w-14 bg-slate-200 rounded-full"></button>
+<div
+  class="play-button"
+  (click)="togglePlay.emit(isPlaying)"
+  [ngClass]="{ active: isPlaying }"
+>
+  <div class="round"></div>
+  <div class="icon">
+    <div class="part part-top"></div>
+    <div class="part part-bottom"></div>
+  </div>
+  <div class="pointer"></div>
+</div>

@@ -1,5 +1,12 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { PlayerStoreStore } from '@nx/client/data-access/player-store/player-store';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'nx-question-card',
@@ -8,30 +15,39 @@ import { PlayerStoreStore } from '@nx/client/data-access/player-store/player-sto
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PlayerStoreStore],
 })
-export class QuestionCardComponent implements OnInit {
+export class QuestionCardComponent implements OnInit, OnDestroy {
   @Input() set song(song: string | undefined | null) {
-    const url = 'https://levi9-song-quiz.herokuapp.com/api/' + song;
-    this.loadSong(url);
+    if (song) {
+      const url = 'https://levi9-song-quiz.herokuapp.com/api/' + song;
+      this.loadSong(url);
+    } else {
+      this.playerStore.pause();
+    }
   }
-
+  
+  sub!: Subscription;
   vm$ = this.playerStore.vm$;
 
   constructor(private playerStore: PlayerStoreStore) {}
 
   ngOnInit(): void {
-    this.playerStore.audioEvents$.subscribe();
+    this.sub = this.playerStore.audioEvents$.subscribe();
+  }
+
+  ngOnDestroy(): void {
+    this.sub?.unsubscribe();
   }
 
   loadSong(url: string) {
     this.playerStore.loadAudio(url);
   }
 
-  playOne() {
-    this.playerStore.play();
-  }
-
-  playTwo() {
-    this.playerStore.pause();
+  togglePlay(isPlaying: boolean) {
+    if (isPlaying) {
+      this.playerStore.pause();
+    } else {
+      this.playerStore.play();
+    }
   }
 
   onChange(value: number) {

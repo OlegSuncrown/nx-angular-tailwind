@@ -3,7 +3,11 @@
     <div
       class="bg-[url('/assets/images/unknown-song.png')] w-20 h-20 mr-4 bg-cover bg-center bg-no-repeat flex items-center justify-center justify-items-center"
     >
-      <nx-play-button></nx-play-button>
+      <nx-play-button
+        [ngClass]="{ 'blur-sm animate-pulse pointer-events-none': !vm.canplay }"
+        [isPlaying]="vm.playing"
+        (togglePlay)="togglePlay($event)"
+      ></nx-play-button>
     </div>
     <div class="relative flex-1">
       <nx-audio-slider
@@ -11,18 +15,21 @@
         [max]="vm.duration"
         [value]="vm.currentTime"
         class="flex-1"
+        [ngClass]="{ 'blur-sm animate-pulse pointer-events-none': !vm.canplay }"
       ></nx-audio-slider>
-      <div class="absolute text-xs text-gray-300 font-thin flex justify-between w-full top-3">
+      <div
+        [ngClass]="{ 'blur-sm animate-pulse pointer-events-none': !vm.canplay }"
+        class="absolute text-xs text-gray-300 font-thin flex justify-between w-full top-3"
+      >
         <span>{{ vm.readableCurrentTime }}</span> <span>{{ vm.readableDuration }}</span>
       </div>
     </div>
+
+    <!-- <div class="animate-pulse flex w-full items-center">
+      <div class="rounded-full bg-quiz-800 h-10 w-10"></div>
+      <div class="flex-1 space-y-6 py-1">
+        <div class="h-2 bg-slate-200 rounded"></div>
+      </div>
+    </div> -->
   </div>
-  <!-- <h2 class="text-white">
-    <pre>{{ vm | json }}</pre>
-  </h2> -->
-  <!-- <div class="mb-5">
-    <button class="mr-3 bg-slate-100 p-5">Load</button>
-    <button class="mr-3 bg-slate-100 p-5" (click)="playOne()">Play</button>
-    <button class="mr-3 bg-slate-100 p-5" (click)="playTwo()">Pause</button>
-  </div> -->
 </ng-container>

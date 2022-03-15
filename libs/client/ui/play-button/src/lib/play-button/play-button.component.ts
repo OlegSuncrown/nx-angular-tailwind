@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'nx-play-button',
@@ -7,6 +7,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlayButtonComponent {
-
+  @Input() isPlaying = false;
+  @Output() togglePlay = new EventEmitter<boolean>();
   constructor() { }
 }
