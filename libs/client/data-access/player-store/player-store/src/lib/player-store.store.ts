@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
-import { fromEvent, merge, tap } from 'rxjs';
+import { fromEvent, merge, Subject, takeUntil, tap } from 'rxjs';
 
 export interface PlayerStoreState {
   playing: boolean;
@@ -36,6 +36,7 @@ export class PlayerStoreStore extends ComponentStore<PlayerStoreState> {
     'loadstart',
   ];
 
+  private stop$ = new Subject<void>();
   audioObj = new Audio();
 
   audioEvents$ = merge(
@@ -87,7 +88,8 @@ export class PlayerStoreStore extends ComponentStore<PlayerStoreState> {
           });
           break;
       }
-    })
+    }),
+    takeUntil(this.stop$)
   );
   constructor() {
     super(initialState);
@@ -111,6 +113,21 @@ export class PlayerStoreStore extends ComponentStore<PlayerStoreState> {
 
   seekTo(seconds: number) {
     this.audioObj.currentTime = seconds;
+  }
+
+  resetStore() {
+    this.audioObj.pause();
+    this.audioObj.currentTime = 0;
+
+    this.stop$.next();
+    this.stop$.complete();
+
+    this.setState((state) => {
+      return {
+        ...state,
+        ...initialState,
+      };
+    });
   }
 
   private formatTime(time: number) {

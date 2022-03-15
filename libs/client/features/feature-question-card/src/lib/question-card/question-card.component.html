@@ -1,7 +1,13 @@
 <ng-container *ngIf="vm$ | async as vm">
   <div class="bg-quiz-700 p-5 rounded-md flex items-center">
+    <!-- <img [src]="URL + imageUrl" alt=""> -->
     <div
-      class="bg-[url('/assets/images/unknown-song.png')] w-20 h-20 mr-4 bg-cover bg-center bg-no-repeat flex items-center justify-center justify-items-center"
+      [ngStyle]="{
+        'background-image': levelIsCompleted
+          ? 'url(' + URL + imageUrl + ')'
+          : 'url(/assets/images/unknown-song.png)'
+      }"
+      class="w-20 h-20 mr-4 bg-cover bg-center bg-no-repeat flex items-center justify-center justify-items-center"
     >
       <nx-play-button
         [ngClass]="{ 'blur-sm animate-pulse pointer-events-none': !vm.canplay }"
@@ -24,12 +30,5 @@
         <span>{{ vm.readableCurrentTime }}</span> <span>{{ vm.readableDuration }}</span>
       </div>
     </div>
-
-    <!-- <div class="animate-pulse flex w-full items-center">
-      <div class="rounded-full bg-quiz-800 h-10 w-10"></div>
-      <div class="flex-1 space-y-6 py-1">
-        <div class="h-2 bg-slate-200 rounded"></div>
-      </div>
-    </div> -->
   </div>
 </ng-container>

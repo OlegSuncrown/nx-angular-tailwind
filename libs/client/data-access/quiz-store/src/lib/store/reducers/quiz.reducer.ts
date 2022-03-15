@@ -66,6 +66,13 @@ export const reducer = createReducer(
     };
   }),
 
+  // on(quizActions.gameOver, (state) => {
+  //   const currentSection = state.data[0];
+  //   const randomIndex = generateRandomNum(state.data.length - 1);
+  //   const currentQuestion = currentSection.data[randomIndex];
+  //   return { ...state, currentLevel: 0, selectedOptions: [], currentQuestion, levelIsCompleted: false };
+  // })
+
   on(quizActions.gameOver, (state) => {
     return { ...state, currentQuestion: null };
   })

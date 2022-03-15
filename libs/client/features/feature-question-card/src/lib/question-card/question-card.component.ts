@@ -6,7 +6,6 @@ import {
   OnInit,
 } from '@angular/core';
 import { PlayerStoreStore } from '@nx/client/data-access/player-store/player-store';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'nx-question-card',
@@ -16,26 +15,29 @@ import { Subscription } from 'rxjs';
   providers: [PlayerStoreStore],
 })
 export class QuestionCardComponent implements OnInit, OnDestroy {
-  @Input() set song(song: string | undefined | null) {
+  URL = 'https://levi9-song-quiz.herokuapp.com/api/';
+  
+  @Input() levelIsCompleted = false;
+  @Input() imageUrl: string | undefined;
+  @Input() set song(song: string | undefined) {
     if (song) {
-      const url = 'https://levi9-song-quiz.herokuapp.com/api/' + song;
+      const url = this.URL + song;
       this.loadSong(url);
     } else {
-      this.playerStore.pause();
+      this.playerStore.resetStore();
     }
   }
-  
-  sub!: Subscription;
+
   vm$ = this.playerStore.vm$;
 
   constructor(private playerStore: PlayerStoreStore) {}
 
   ngOnInit(): void {
-    this.sub = this.playerStore.audioEvents$.subscribe();
+    this.playerStore.audioEvents$.subscribe();
   }
 
   ngOnDestroy(): void {
-    this.sub?.unsubscribe();
+    this.playerStore.resetStore();
   }
 
   loadSong(url: string) {

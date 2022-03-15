@@ -21,7 +21,9 @@
 
         <nx-question-card
           class="mb-6"
+          [imageUrl]="(currentQuestion$ | async)?.image"
           [song]="(currentQuestion$ | async)?.audio"
+          [levelIsCompleted]="game.levelIsCompleted"
         ></nx-question-card>
         <ng-container *ngFor="let option of optionSection$ | async; index as i">
           <nx-quiz-option-item
@@ -45,7 +47,12 @@
       </div>
     </div>
 
-    <button type="submit" quizButton (click)="onStartNewLevel()" [disabled]="!(isLevelCompleted$ | async)">
+    <button
+      type="submit"
+      quizButton
+      (click)="onStartNewLevel()"
+      [disabled]="(isLevelCompleted$ | async) === false"
+    >
       Start Quiz
       <svg
         class="ml-2 -mr-1 w-5 h-5"

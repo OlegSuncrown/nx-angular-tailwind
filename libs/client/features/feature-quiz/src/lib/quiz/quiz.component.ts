@@ -17,6 +17,7 @@ export class QuizComponent implements OnInit {
   progressAnimation$ = this.store.select(quizStore.selectProgressAnimation);
   optionSection$ = this.store.select(quizStore.selectOptionSection);
   isLevelCompleted$ = this.store.select(quizStore.selectLevelIsCompleted);
+  
   constructor(private store: Store) {}
 
   ngOnInit(): void {
