@@ -16,7 +16,7 @@ import { PlayerStoreStore } from '@nx/client/data-access/player-store/player-sto
 })
 export class QuestionCardComponent implements OnInit, OnDestroy {
   URL = 'https://levi9-song-quiz.herokuapp.com/api/';
-  
+
   @Input() levelIsCompleted = false;
   @Input() imageUrl: string | undefined;
   @Input() set song(song: string | undefined) {

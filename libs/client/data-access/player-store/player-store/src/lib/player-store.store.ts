@@ -42,6 +42,7 @@ export class PlayerStoreStore extends ComponentStore<PlayerStoreState> {
   audioEvents$ = merge(
     ...this.audioEvents.map((event) => fromEvent(this.audioObj, event))
   ).pipe(
+    takeUntil(this.stop$),
     tap((event: Event) => {
       switch (event.type) {
         case 'loadstart':
@@ -88,8 +89,7 @@ export class PlayerStoreStore extends ComponentStore<PlayerStoreState> {
           });
           break;
       }
-    }),
-    takeUntil(this.stop$)
+    })
   );
   constructor() {
     super(initialState);
@@ -120,8 +120,7 @@ export class PlayerStoreStore extends ComponentStore<PlayerStoreState> {
     this.audioObj.currentTime = 0;
 
     this.stop$.next();
-    this.stop$.complete();
-
+    // this.stop$.complete();
     this.setState((state) => {
       return {
         ...state,
