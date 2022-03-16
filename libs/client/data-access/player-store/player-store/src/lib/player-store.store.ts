@@ -96,7 +96,8 @@ export class PlayerStoreStore extends ComponentStore<PlayerStoreState> {
   }
 
   readonly vm$ = this.select((state) => state);
-
+  readonly isPlaying$ = this.select((state) => state.playing);
+  
   loadAudio(url: string) {
     this.audioObj.src = url;
     this.audioObj.load();

@@ -1,2 +1,29 @@
 <h1 class="text-white">Hello</h1>
-<pre class="text-white">{{selectedOption | json}}</pre>
+<!-- <pre class="text-white">{{selectedOption | json}}</pre> -->
+<ng-container *ngIf="vm$ | async as vm">
+  <div class="bg-quiz-700 p-2 rounded-md flex items-center">
+    <!-- <img [src]="URL + imageUrl" alt=""> -->
+
+    <nx-play-button
+      [ngClass]="{ 'blur-sm animate-pulse pointer-events-none': !vm.canplay }"
+      [isPlaying]="vm.playing"
+      (togglePlay)="togglePlay($event)"
+    ></nx-play-button>
+
+    <div class="relative flex-1">
+      <nx-audio-slider
+        (emitValue)="onChange($event)"
+        [max]="vm.duration"
+        [value]="vm.currentTime"
+        class="flex-1"
+        [ngClass]="{ 'blur-sm animate-pulse pointer-events-none': !vm.canplay }"
+      ></nx-audio-slider>
+      <div
+        [ngClass]="{ 'blur-sm animate-pulse pointer-events-none': !vm.canplay }"
+        class="absolute text-xs text-gray-300 font-thin flex justify-between w-full top-3"
+      >
+        <span>{{ vm.readableCurrentTime }}</span> <span>{{ vm.readableDuration }}</span>
+      </div>
+    </div>
+  </div>
+</ng-container>

@@ -26,17 +26,30 @@
 }
 
 .icon {
-  height: 100px;
+  height: 60px;
   transform: rotate(-120deg);
   transition: transform 500ms;
-  width: 100px;
+  width: 60px;
 }
 
 .part {
   background: rgb(145, 145, 145);
-  height: 100px;
+  height: 60px;
   position: absolute;
-  width: 100px;
+  width: 60px;
+}
+
+.pointer {
+  border-radius: 50%;
+  cursor: pointer;
+  height: 60px;
+  position: absolute;
+  -webkit-tap-highlight-color: transparent;
+  width: 60px;
+}
+
+.active .icon {
+  transform: rotate(-90deg);
 }
 
 .part-top {
@@ -177,19 +190,6 @@
     43.773% 43.428%
   );
   transition: clip-path 500ms;
-}
-
-.pointer {
-  border-radius: 50%;
-  cursor: pointer;
-  height: 100px;
-  position: absolute;
-  -webkit-tap-highlight-color: transparent;
-  width: 100px;
-}
-
-.active .icon {
-  transform: rotate(-90deg);
 }
 
 .active .part-top {

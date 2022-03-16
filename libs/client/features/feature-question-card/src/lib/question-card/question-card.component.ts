@@ -4,6 +4,7 @@ import {
   Input,
   OnDestroy,
   OnInit,
+  Output,
 } from '@angular/core';
 import { PlayerStoreStore } from '@nx/client/data-access/player-store/player-store';
 
@@ -15,7 +16,7 @@ import { PlayerStoreStore } from '@nx/client/data-access/player-store/player-sto
   providers: [PlayerStoreStore],
 })
 export class QuestionCardComponent implements OnInit, OnDestroy {
-  URL = 'https://levi9-song-quiz.herokuapp.com/api/';
+  @Output() readonly isPlaying = this.playerStore.isPlaying$;
 
   @Input() levelIsCompleted = false;
   @Input() imageUrl: string | undefined;
@@ -28,6 +29,13 @@ export class QuestionCardComponent implements OnInit, OnDestroy {
     }
   }
 
+  @Input() set stop(isPlaying: boolean) {
+    if(isPlaying) {
+      this.playerStore.pause();
+    }
+  }
+
+  URL = 'https://levi9-song-quiz.herokuapp.com/api/';
   vm$ = this.playerStore.vm$;
 
   constructor(private playerStore: PlayerStoreStore) {}
