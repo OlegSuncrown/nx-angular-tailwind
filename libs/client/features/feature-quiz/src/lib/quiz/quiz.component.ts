@@ -17,7 +17,7 @@ export class QuizComponent implements OnInit {
   progressAnimation$ = this.store.select(quizStore.selectProgressAnimation);
   optionSection$ = this.store.select(quizStore.selectOptionSection);
   isLevelCompleted$ = this.store.select(quizStore.selectLevelIsCompleted);
-  
+
   constructor(private store: Store) {}
 
   ngOnInit(): void {
@@ -28,7 +28,7 @@ export class QuizComponent implements OnInit {
     this.store.dispatch(quizStore.nextLevel());
   }
 
-  onSelectSong(option: QuizItem) {
-    this.store.dispatch(setOption({ selectedOption: option?.id }));
+  onSelectOption(selectedOption: QuizItem) {
+    this.store.dispatch(setOption({ selectedOption }));
   }
 }

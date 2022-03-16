@@ -16,6 +16,7 @@ export interface State {
   data: QuizSection[];
   currentQuestion: QuizItem | null;
   selectedOptions: string[];
+  selectedOption: QuizItem | null;
 }
 
 export const initialState: State = {
@@ -26,6 +27,7 @@ export const initialState: State = {
   data: [],
   currentQuestion: null,
   selectedOptions: [],
+  selectedOption: null,
 };
 
 export const reducer = createReducer(
@@ -41,7 +43,12 @@ export const reducer = createReducer(
     if (state.currentLevel > state.data.length - 1) {
       return { ...state };
     }
-    return { ...state, currentLevel: state.currentLevel + 1, selectedOptions: [] };
+    return {
+      ...state,
+      currentLevel: state.currentLevel + 1,
+      selectedOptions: [],
+      selectedOption: null,
+    };
   }),
 
   on(quizActions.nextLevelSuccess, (state) => {
@@ -54,15 +61,16 @@ export const reducer = createReducer(
   on(quizActions.setOption, (state, { selectedOption }) => {
     const currentQuestionId = state.currentQuestion?.id || '';
     const levelIsCompleted =
-      selectedOption === currentQuestionId || state.levelIsCompleted;
+      selectedOption.id === currentQuestionId || state.levelIsCompleted;
     const selectedOptions = state.selectedOptions.includes(currentQuestionId)
       ? [...state.selectedOptions]
-      : [...state.selectedOptions, selectedOption];
+      : [...state.selectedOptions, selectedOption.id];
 
     return {
       ...state,
       selectedOptions,
       levelIsCompleted,
+      selectedOption,
     };
   }),
 

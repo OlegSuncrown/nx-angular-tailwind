@@ -10,6 +10,5 @@ import { QuizItem } from '@nx/shared/types/api-quiz';
 export class QuizOptionItemComponent {
   @Input() option!: QuizItem;
   @Input() index!: number;
-
   constructor() {}
 }

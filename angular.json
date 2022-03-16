@@ -9,6 +9,7 @@
     "client-assets": "libs/client/assets",
     "client-data-access-player-store-player-store": "libs/client/data-access/player-store/player-store",
     "client-data-access-quiz-store": "libs/client/data-access/quiz-store",
+    "client-features-feature-option-card": "libs/client/features/feature-option-card",
     "client-features-feature-question-card": "libs/client/features/feature-question-card",
     "client-features-feature-quiz": "libs/client/features/feature-quiz",
     "client-features-feature-start-quiz": "libs/client/features/feature-start-quiz",

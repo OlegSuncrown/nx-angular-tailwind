@@ -22,6 +22,9 @@
       "@nx/client/data-access/quiz-store": [
         "libs/client/data-access/quiz-store/src/index.ts"
       ],
+      "@nx/client/features/feature-option-card": [
+        "libs/client/features/feature-option-card/src/index.ts"
+      ],
       "@nx/client/features/feature-question-card": [
         "libs/client/features/feature-question-card/src/index.ts"
       ],

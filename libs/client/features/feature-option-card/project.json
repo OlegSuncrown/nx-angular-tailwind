@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/client/features/feature-option-card",
+  "sourceRoot": "libs/client/features/feature-option-card/src",
+  "prefix": "nx",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/features/feature-option-card"],
+      "options": {
+        "jestConfig": "libs/client/features/feature-option-card/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/client/features/feature-option-card/src/**/*.ts",
+          "libs/client/features/feature-option-card/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["scope:client", "type:lib"]
+}

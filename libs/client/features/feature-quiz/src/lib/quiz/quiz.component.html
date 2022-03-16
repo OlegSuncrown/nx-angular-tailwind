@@ -27,7 +27,7 @@
         ></nx-question-card>
         <ng-container *ngFor="let option of optionSection$ | async; index as i">
           <nx-quiz-option-item
-            (click)="onSelectSong(option)"
+            (click)="onSelectOption(option)"
             class="mb-2"
             [index]="i"
             [option]="option"
@@ -35,6 +35,7 @@
         </ng-container>
       </div>
       <div class="col-span-7">
+        <nx-option-card *ngIf="game.selectedOption" [selectedOption]="game.selectedOption"></nx-option-card>
         <!-- <div *ngFor="let section of optionSection$ | async" class="text-white">
           <div
             (click)="onSelectSong(section)"

@@ -16,7 +16,7 @@ export const setPlayerName = createAction(
 
 export const setOption = createAction(
   QuizActions.setOption,
-  props<{ selectedOption: string }>()
+  props<{ selectedOption: QuizItem }>()
 );
 
 export const nextLevel = createAction(QuizActions.nextLevel);
