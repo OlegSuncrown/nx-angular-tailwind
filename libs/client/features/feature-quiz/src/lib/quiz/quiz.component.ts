@@ -11,6 +11,8 @@ import { QuizItem } from '@nx/shared/types/api-quiz';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class QuizComponent implements OnInit {
+  api$ = this.store.select(quizStore.selectApiQuizState)
+
   game$ = this.store.select(quizStore.selectGameQuizState);
   currentQuestion$ = this.store.select(quizStore.selectCurrentQuestion);
   currentGenre$ = this.store.select(quizStore.selectCurrentGenre);

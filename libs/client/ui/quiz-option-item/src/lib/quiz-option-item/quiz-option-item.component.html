@@ -1,14 +1,14 @@
 <div
   [ngClass]="{
-    'bg-green-800 border-green-700': option.isSelected === 'completed',
-    'bg-red-900 border-red-700': option.isSelected === 'failed'
+    'bg-green-900 border-green-700': option.isSelected === 'completed',
+    'bg-red-900 border-red-800': option.isSelected === 'failed'
   }"
   class="text-gray-300 font-thin px-2 py-3 border border-quiz-700 rounded-md cursor-pointer flex items-center"
 >
   <div
     [ngClass]="{
       'border-green-700': option.isSelected === 'completed',
-      'border-red-700': option.isSelected === 'failed'
+      'border-red-800': option.isSelected === 'failed'
     }"
     class="w-6 h-6 rounded-full border border-quiz-700 mr-3"
   ></div>

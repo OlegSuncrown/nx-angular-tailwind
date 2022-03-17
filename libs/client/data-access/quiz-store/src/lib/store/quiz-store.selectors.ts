@@ -6,11 +6,13 @@ import { quizGameFeatureKey } from './reducers/quiz.reducer';
 
 export const selectQuizState = createFeatureSelector<QuizState>(quizFeatureKey);
 
+// Api selectors
 export const selectApiQuizState = createSelector(
   selectQuizState,
   (state) => state[apiQuizFeatureKey]
 );
 
+// Game selectors
 export const selectGameQuizState = createSelector(
   selectQuizState,
   (state) => state[quizGameFeatureKey]
