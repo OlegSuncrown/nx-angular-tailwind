@@ -1,29 +1,35 @@
-<h1 class="text-white">Hello</h1>
-<!-- <pre class="text-white">{{selectedOption | json}}</pre> -->
-<ng-container *ngIf="vm$ | async as vm">
-  <div class="bg-quiz-700 p-2 rounded-md flex items-center">
-    <!-- <img [src]="URL + imageUrl" alt=""> -->
+<h2 class="text-white">{{ quizItem?.name }} - {{ quizItem?.songTitle }}</h2>
 
-    <nx-play-button
-      [ngClass]="{ 'blur-sm animate-pulse pointer-events-none': !vm.canplay }"
-      [isPlaying]="vm.playing"
-      (togglePlay)="togglePlay($event)"
-    ></nx-play-button>
+<div class="rounded-md overflow-hidden shadow-lg">
+  <img style="object-position: 50% 20%;" class="w-full object-cover h-80 xl:h-72" [src]="URL + quizItem?.image" [alt]="quizItem?.name" />
+  
+  <ng-container *ngIf="vm$ | async as vm">
+    <div class="bg-quiz-700 p-2 flex items-center">
+      <nx-play-button
+        [ngClass]="{ 'blur-sm animate-pulse pointer-events-none': !vm.canplay }"
+        [isPlaying]="vm.playing"
+        (togglePlay)="togglePlay($event)"
+      ></nx-play-button>
 
-    <div class="relative flex-1">
-      <nx-audio-slider
-        (emitValue)="onChange($event)"
-        [max]="vm.duration"
-        [value]="vm.currentTime"
-        class="flex-1"
-        [ngClass]="{ 'blur-sm animate-pulse pointer-events-none': !vm.canplay }"
-      ></nx-audio-slider>
-      <div
-        [ngClass]="{ 'blur-sm animate-pulse pointer-events-none': !vm.canplay }"
-        class="absolute text-xs text-gray-300 font-thin flex justify-between w-full top-3"
-      >
-        <span>{{ vm.readableCurrentTime }}</span> <span>{{ vm.readableDuration }}</span>
+      <div class="relative flex-1">
+        <nx-audio-slider
+          (emitValue)="onChange($event)"
+          [max]="vm.duration"
+          [value]="vm.currentTime"
+          class="flex-1"
+          [ngClass]="{ 'blur-sm animate-pulse pointer-events-none': !vm.canplay }"
+        ></nx-audio-slider>
+        <div
+          [ngClass]="{ 'blur-sm animate-pulse pointer-events-none': !vm.canplay }"
+          class="absolute text-xs text-gray-300 font-thin flex justify-between w-full top-3"
+        >
+          <span>{{ vm.readableCurrentTime }}</span> <span>{{ vm.readableDuration }}</span>
+        </div>
       </div>
     </div>
-  </div>
-</ng-container>
+  </ng-container>
+</div>
+
+<p class="font-thin text-gray-200 pt-3 !m-0 text-sm">
+  {{(quizItem?.description?.length || 0) > 450 ? (quizItem?.description | slice:0:400) + '...' : quizItem?.description}}
+</p>

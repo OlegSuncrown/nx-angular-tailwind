@@ -20,8 +20,8 @@ export class OptionCardComponent implements OnInit, OnDestroy {
   @Output() readonly isPlaying = this.playerStore.isPlaying$;
 
   @Input() levelIsCompleted = false;
-  @Input() imageUrl: string | undefined;
   @Input() set selectedOption(selectedOption: QuizItem | undefined) {
+    this.quizItem = selectedOption
     if (selectedOption?.audio) {
       const url = this.URL + selectedOption?.audio;
       this.loadSong(url);
@@ -38,6 +38,7 @@ export class OptionCardComponent implements OnInit, OnDestroy {
 
   URL = 'https://levi9-song-quiz.herokuapp.com/api/';
   vm$ = this.playerStore.vm$;
+  quizItem?: QuizItem;
 
   constructor(private playerStore: PlayerStoreStore) {}
 
