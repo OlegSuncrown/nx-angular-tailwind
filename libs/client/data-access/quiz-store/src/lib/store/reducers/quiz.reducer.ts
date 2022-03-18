@@ -17,6 +17,7 @@ export interface State {
   currentQuestion: QuizItem | null;
   selectedOptions: string[];
   selectedOption: QuizItem | null;
+  gameOver: boolean;
 }
 
 export const initialState: State = {
@@ -28,6 +29,7 @@ export const initialState: State = {
   currentQuestion: null,
   selectedOptions: [],
   selectedOption: null,
+  gameOver: false,
 };
 
 export const reducer = createReducer(
@@ -62,6 +64,7 @@ export const reducer = createReducer(
     if (state.levelIsCompleted) {
       return {
         ...state,
+        selectedOption
       };
     }
 
@@ -91,6 +94,6 @@ export const reducer = createReducer(
   // })
 
   on(quizActions.gameOver, (state) => {
-    return { ...state, currentQuestion: null };
+    return { ...state, currentQuestion: null, gameOver: true };
   })
 );

@@ -1,7 +1,12 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as quizStore from '@nx/client/data-access/quiz-store';
+
+// Actions
 import { setOption } from '@nx/client/data-access/quiz-store';
+import { navigateTo } from '@nx/shared/data-access/ngrx-root-store';
+
+// Interfaces
 import { QuizItem } from '@nx/shared/types/api-quiz';
 
 @Component({
@@ -11,14 +16,13 @@ import { QuizItem } from '@nx/shared/types/api-quiz';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class QuizComponent implements OnInit {
-  api$ = this.store.select(quizStore.selectApiQuizState)
+  api$ = this.store.select(quizStore.selectApiQuizState);
 
   game$ = this.store.select(quizStore.selectGameQuizState);
   currentQuestion$ = this.store.select(quizStore.selectCurrentQuestion);
   currentGenre$ = this.store.select(quizStore.selectCurrentGenre);
   progressAnimation$ = this.store.select(quizStore.selectProgressAnimation);
   optionSection$ = this.store.select(quizStore.selectOptionSection);
-  isLevelCompleted$ = this.store.select(quizStore.selectLevelIsCompleted);
 
   isOptionCardPlaying = false;
   isQuestionCardPlaying = false;

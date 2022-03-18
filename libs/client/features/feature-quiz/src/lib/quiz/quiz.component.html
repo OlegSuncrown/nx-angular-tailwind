@@ -1,78 +1,80 @@
 <ng-container *ngIf="api$ | async as api">
   <div class="container mx-auto pt-6 xl:px-14 md:px-8 px-2" *ngIf="api.isLoaded">
     <ng-container *ngIf="game$ | async as game">
-      <nx-quiz-score-bar
-        [name]="game.playerName"
-        [score]="game.score"
-      ></nx-quiz-score-bar>
-      <nx-quiz-nav
-        *ngIf="game.data.length"
-        [progressAnimation]="progressAnimation$ | async"
-        [data]="game.data"
-        [currentLevel]="game.currentLevel"
-      ></nx-quiz-nav>
+      <ng-container *ngIf="!game.gameOver">
+        <nx-quiz-score-bar
+          [name]="game.playerName"
+          [score]="game.score"
+        ></nx-quiz-score-bar>
+        <nx-quiz-nav
+          *ngIf="game.data.length"
+          [progressAnimation]="progressAnimation$ | async"
+          [data]="game.data"
+          [currentLevel]="game.currentLevel"
+        ></nx-quiz-nav>
 
-      <div class="grid xl:grid-cols-12 gap-8 xl:gap-18 mb-2 bg-quiz-800 py-8 px-12">
-        <div class="xl:col-span-5 mb-11">
-          <h2 class="text-gray-100 !text-3xl mb-3">
-            <span class="capitalize">{{ currentGenre$ | async }}</span>
-            <span> song</span>
-          </h2>
+        <div class="grid xl:grid-cols-12 gap-8 xl:gap-18 mb-2 bg-quiz-800 py-8 px-12">
+          <div class="xl:col-span-5 mb-11">
+            <h2 class="text-gray-100 !text-3xl mb-3">
+              <span class="capitalize">{{ currentGenre$ | async }}</span>
+              <span> song</span>
+            </h2>
 
-          <p class="text-gray-400 mb-3">
-            Listen to the audio guess what song is it from the list
-          </p>
+            <p class="text-gray-400 mb-3">
+              Listen to the audio guess what song is it from the list
+            </p>
 
-          <nx-question-card
-            class="mb-6"
-            (isPlaying)="questionCardPlaying($event)"
-            [imageUrl]="(currentQuestion$ | async)?.image"
-            [song]="(currentQuestion$ | async)?.audio"
-            [stop]="isOptionCardPlaying"
-            [levelIsCompleted]="game.levelIsCompleted"
-          ></nx-question-card>
-          <ng-container *ngFor="let option of optionSection$ | async; index as i">
-            <nx-quiz-option-item
-              (click)="onSelectOption(option)"
-              class="mb-2"
-              [index]="i"
-              [option]="option"
-            ></nx-quiz-option-item>
-          </ng-container>
+            <nx-question-card
+              class="mb-6"
+              (isPlaying)="questionCardPlaying($event)"
+              [imageUrl]="(currentQuestion$ | async)?.image"
+              [song]="(currentQuestion$ | async)?.audio"
+              [stop]="isOptionCardPlaying"
+              [levelIsCompleted]="game.levelIsCompleted"
+            ></nx-question-card>
+            <ng-container *ngFor="let option of optionSection$ | async; index as i">
+              <nx-quiz-option-item
+                (click)="onSelectOption(option)"
+                class="mb-2"
+                [index]="i"
+                [option]="option"
+              ></nx-quiz-option-item>
+            </ng-container>
+          </div>
+          <div class="xl:col-span-7">
+            <nx-option-card
+              *ngIf="game.selectedOption"
+              [stop]="isQuestionCardPlaying"
+              [selectedOption]="game.selectedOption"
+              (isPlaying)="optionCardPlaying($event)"
+            ></nx-option-card>
+          </div>
         </div>
-        <div class="xl:col-span-7">
-          <nx-option-card
-            *ngIf="game.selectedOption"
-            [stop]="isQuestionCardPlaying"
-            [selectedOption]="game.selectedOption"
-            (isPlaying)="optionCardPlaying($event)"
-          ></nx-option-card>
-        </div>
-      </div>
 
-      <div class="text-right">
-        <button
-          type="submit"
-          quizButton
-          class=""
-          (click)="onStartNewLevel()"
-          [disabled]="(isLevelCompleted$ | async) === false"
-        >
-          Next Question
-          <svg
-            class="ml-2 -mr-1 w-5 h-5"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
+        <div class="text-right">
+          <button
+            type="submit"
+            quizButton
+            class=""
+            (click)="onStartNewLevel()"
+            [disabled]="game.levelIsCompleted === false"
           >
-            <path
-              fill-rule="evenodd"
-              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-              clip-rule="evenodd"
-            ></path>
-          </svg>
-        </button>
-      </div>
+            Next Question
+            <svg
+              class="ml-2 -mr-1 w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </ng-container>
     </ng-container>
   </div>
 

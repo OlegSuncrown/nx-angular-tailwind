@@ -62,7 +62,3 @@ export const selectOptionSection = createSelector(selectGameQuizState, (quizStat
 
   return options;
 });
-
-export const selectLevelIsCompleted = createSelector(selectGameQuizState, (quizState) => {
-  return quizState?.levelIsCompleted;
-});

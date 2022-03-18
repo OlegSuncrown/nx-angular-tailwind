@@ -15,6 +15,7 @@ import { Store } from '@ngrx/store';
 
 // Services
 import { ApiQuizDataService } from '../services/api-quiz-data.service';
+import { navigateTo } from '@nx/shared/data-access/ngrx-root-store';
 
 @Injectable()
 export class QuizStoreEffects {
@@ -38,6 +39,7 @@ export class QuizStoreEffects {
       concatLatestFrom(() => this.store.select(selectGameQuizState)),
       map(([, state]) => {
         if (state.currentLevel > state.data.length - 1) {
+          this.store.dispatch(navigateTo({url: 'start'}))
           return quizActions.gameOver();
         }
         return quizActions.nextLevelSuccess();

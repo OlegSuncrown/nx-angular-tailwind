@@ -9,6 +9,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 // Router Store
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { CustomSerializer, routerReducers } from './router-store';
+import { RouterEffects } from './router-store/router.effects';
 // import { environment } from '../environments/environment';
 
 const environment = {
@@ -31,7 +32,7 @@ const environment = {
     StoreRouterConnectingModule.forRoot({
       serializer: CustomSerializer,
     }),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([RouterEffects]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
 })
