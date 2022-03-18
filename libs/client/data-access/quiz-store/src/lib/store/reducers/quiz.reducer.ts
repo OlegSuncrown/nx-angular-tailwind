@@ -59,18 +59,27 @@ export const reducer = createReducer(
   }),
 
   on(quizActions.setOption, (state, { selectedOption }) => {
-    const currentQuestionId = state.currentQuestion?.id || '';
-    const levelIsCompleted =
-      selectedOption.id === currentQuestionId || state.levelIsCompleted;
-    const selectedOptions = state.selectedOptions.includes(currentQuestionId)
-      ? [...state.selectedOptions]
-      : [...state.selectedOptions, selectedOption.id];
+    if (state.levelIsCompleted) {
+      return {
+        ...state,
+      };
+    }
+
+    const levelIsCompleted = selectedOption.id === state.currentQuestion?.id;
+    const selectedOptions = [...state.selectedOptions, selectedOption.id];
+
+    const maxScore = state.data[state.currentLevel].data.length;
+    const currentScore = state.score;
+    const score = levelIsCompleted
+      ? currentScore + maxScore - selectedOptions.length
+      : currentScore;
 
     return {
       ...state,
       selectedOptions,
       levelIsCompleted,
       selectedOption,
+      score,
     };
   }),
 
