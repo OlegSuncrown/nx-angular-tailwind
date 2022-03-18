@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/client/features/feature-summary",
+  "sourceRoot": "libs/client/features/feature-summary/src",
+  "prefix": "nx",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/features/feature-summary"],
+      "options": {
+        "jestConfig": "libs/client/features/feature-summary/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/client/features/feature-summary/src/**/*.ts",
+          "libs/client/features/feature-summary/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["scope:client", "type:lib"]
+}

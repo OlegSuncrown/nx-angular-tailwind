@@ -4,7 +4,6 @@ import * as quizStore from '@nx/client/data-access/quiz-store';
 
 // Actions
 import { setOption } from '@nx/client/data-access/quiz-store';
-import { navigateTo } from '@nx/shared/data-access/ngrx-root-store';
 
 // Interfaces
 import { QuizItem } from '@nx/shared/types/api-quiz';

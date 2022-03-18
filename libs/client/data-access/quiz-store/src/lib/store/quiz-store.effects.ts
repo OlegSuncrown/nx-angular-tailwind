@@ -39,7 +39,7 @@ export class QuizStoreEffects {
       concatLatestFrom(() => this.store.select(selectGameQuizState)),
       map(([, state]) => {
         if (state.currentLevel > state.data.length - 1) {
-          this.store.dispatch(navigateTo({url: 'start'}))
+          this.store.dispatch(navigateTo({url: 'summary'}))
           return quizActions.gameOver();
         }
         return quizActions.nextLevelSuccess();

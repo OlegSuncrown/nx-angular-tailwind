@@ -34,6 +34,9 @@
       "@nx/client/features/feature-start-quiz": [
         "libs/client/features/feature-start-quiz/src/index.ts"
       ],
+      "@nx/client/features/feature-summary": [
+        "libs/client/features/feature-summary/src/index.ts"
+      ],
       "@nx/client/ui/audio-slider": ["libs/client/ui/audio-slider/src/index.ts"],
       "@nx/client/ui/play-button": ["libs/client/ui/play-button/src/index.ts"],
       "@nx/client/ui/quiz-button": ["libs/client/ui/quiz-button/src/index.ts"],

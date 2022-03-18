@@ -31,6 +31,13 @@ const routes: Routes = [
             (m) => m.ClientFeatureQuizModule
           ),
       },
+      {
+        path: 'summary',
+        loadChildren: () =>
+          import('@nx/client/features/feature-summary').then(
+            (m) => m.ClientFeatureSummaryModule
+          ),
+      },
     ],
   },
 ];

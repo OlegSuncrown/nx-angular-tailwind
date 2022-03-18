@@ -13,6 +13,7 @@
     "client-features-feature-question-card": "libs/client/features/feature-question-card",
     "client-features-feature-quiz": "libs/client/features/feature-quiz",
     "client-features-feature-start-quiz": "libs/client/features/feature-start-quiz",
+    "client-features-feature-summary": "libs/client/features/feature-summary",
     "client-features-shell": "libs/client/features/shell",
     "client-styles": "libs/client/styles",
     "client-ui-audio-slider": "libs/client/ui/audio-slider",
