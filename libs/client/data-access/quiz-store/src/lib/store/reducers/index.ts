@@ -7,7 +7,7 @@ export const quizFeatureKey = 'quizState';
 
 export interface QuizState {
   [fromApiQuiz.apiQuizFeatureKey]: fromApiQuiz.State;
-  [fromGameQuiz.quizGameFeatureKey]: fromGameQuiz.State;
+  [fromGameQuiz.quizGameFeatureKey]: fromGameQuiz.QuizState;
 }
 
 export function reducers(state: QuizState | undefined, action: Action) {

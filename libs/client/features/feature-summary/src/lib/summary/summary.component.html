@@ -1,9 +1,18 @@
-<div class="px-2 lg:px-0 min-h-screen flex items-center justify-center flex-col relative">
+<div class="px-2 lg:px-0 min-h-screen flex items-center justify-center flex-col relative" *ngIf="game$ | async as game">
   <div class="w-36 absolute top-20">
     <img class="block w-full" src="./assets/images/logo.png" alt="quiz logo" />
   </div>
-  <div class="p-5 bg-quiz-800 w-full md:w-2/3 xl:w-1/2 text-center">
-    <button type="submit" quizButton>
+  <div class="px-5 py-16 relative rounded-md bg-quiz-800 w-full md:w-2/3 xl:w-1/2 text-center">
+    <div class="text-4xl text-gray-100 flex items-center justify-center absolute top-0 left-1/2 -translate-x-1/2 -translate-y-2/3 rounded-full h-24 w-24 bg-quiz-700">
+      {{game.score}}
+    </div>
+    
+    <h2 class="text-xl text-gray-100">{{game.playerName}}, did so great!</h2>
+
+    <p class="font-thin text-gray-400 !mb-5 text-xs">
+      You've got {{game.score}} out of 12 points. You are definitely a music lover!
+    </p>
+    <button type="submit" quizButton (click)="onStartNewGame()">
       Try Again
       <svg
         class="ml-2 -mr-1 w-5 h-5"

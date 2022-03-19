@@ -1,7 +1,7 @@
 <ng-container *ngIf="api$ | async as api">
   <div class="container mx-auto pt-6 xl:px-14 md:px-8 px-2" *ngIf="api.isLoaded">
     <ng-container *ngIf="game$ | async as game">
-      <ng-container *ngIf="!game.gameOver">
+      <ng-container *ngIf="game.currentQuestion">
         <nx-quiz-score-bar
           [name]="game.playerName"
           [score]="game.score"

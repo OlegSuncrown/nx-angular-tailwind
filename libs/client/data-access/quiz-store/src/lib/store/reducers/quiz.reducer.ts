@@ -8,7 +8,7 @@ import * as quizActions from '../actions/quiz.actions';
 
 export const quizGameFeatureKey = 'gameQuizState';
 
-export interface State {
+export interface QuizState {
   playerName: string;
   score: number;
   currentLevel: number;
@@ -17,10 +17,9 @@ export interface State {
   currentQuestion: QuizItem | null;
   selectedOptions: string[];
   selectedOption: QuizItem | null;
-  gameOver: boolean;
 }
 
-export const initialState: State = {
+export const initialState: QuizState = {
   playerName: '',
   score: 0,
   currentLevel: 0,
@@ -29,17 +28,19 @@ export const initialState: State = {
   currentQuestion: null,
   selectedOptions: [],
   selectedOption: null,
-  gameOver: false,
 };
 
 export const reducer = createReducer(
   initialState,
 
   on(apiActions.loadQuizDataSuccess, (state, { data }) => {
-    return { ...state, data };
+    return { ...state, data, score: 0 };
   }),
 
-  on(quizActions.setPlayerName, (state, { playerName }) => ({ ...state, playerName })),
+  on(quizActions.setPlayerName, (state, { playerName }) => ({
+    ...state,
+    playerName: playerName.toLocaleUpperCase(),
+  })),
 
   on(quizActions.nextLevel, (state) => {
     if (state.currentLevel > state.data.length - 1) {
@@ -64,7 +65,7 @@ export const reducer = createReducer(
     if (state.levelIsCompleted) {
       return {
         ...state,
-        selectedOption
+        selectedOption,
       };
     }
 
@@ -86,14 +87,13 @@ export const reducer = createReducer(
     };
   }),
 
-  // on(quizActions.gameOver, (state) => {
-  //   const currentSection = state.data[0];
-  //   const randomIndex = generateRandomNum(state.data.length - 1);
-  //   const currentQuestion = currentSection.data[randomIndex];
-  //   return { ...state, currentLevel: 0, selectedOptions: [], currentQuestion, levelIsCompleted: false };
-  // })
-
   on(quizActions.gameOver, (state) => {
-    return { ...state, currentQuestion: null, gameOver: true };
+    return {
+      ...state,
+      ...initialState,
+      data: state.data,
+      playerName: state.playerName,
+      score: state.score,
+    };
   })
 );
