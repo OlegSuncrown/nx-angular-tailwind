@@ -3,28 +3,27 @@
     <img class="block w-full" src="./assets/images/logo.png" alt="quiz logo" />
   </div>
   <div class="px-5 py-16 relative rounded-md bg-quiz-800 w-full md:w-2/3 xl:w-1/2 text-center">
-    <div class="text-4xl text-gray-100 flex items-center justify-center absolute top-0 left-1/2 -translate-x-1/2 -translate-y-2/3 rounded-full h-24 w-24 bg-quiz-700">
+    <div
+      class="text-4xl text-gray-100 flex items-center justify-center absolute top-0 left-1/2 -translate-x-1/2 -translate-y-2/3 rounded-full h-24 w-24 bg-quiz-700">
       {{game.score}}
     </div>
-    
-    <h2 class="text-xl text-gray-100">{{game.playerName}}, did so great!</h2>
+
+    <h2 class="text-xl text-gray-100 first-letter:capitalize">
+      <span class="lowercase">
+        {{game.playerName}},
+      </span>
+      {{game.score < 12 ? 'you can do better, try again!' : 'did so great!'}}
+    </h2>
 
     <p class="font-thin text-gray-400 !mb-5 text-xs">
-      You've got {{game.score}} out of 12 points. You are definitely a music lover!
+      You've got {{game.score}} out of 12 points. {{game.score >= 12 ? 'You are definitely a music lover!' : ''}}
     </p>
     <button type="submit" quizButton (click)="onStartNewGame()">
       Try Again
-      <svg
-        class="ml-2 -mr-1 w-5 h-5"
-        fill="currentColor"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          fill-rule="evenodd"
+      <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd"
           d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-          clip-rule="evenodd"
-        ></path>
+          clip-rule="evenodd"></path>
       </svg>
     </button>
   </div>

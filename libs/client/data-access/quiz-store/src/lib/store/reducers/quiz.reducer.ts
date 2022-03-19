@@ -39,7 +39,7 @@ export const reducer = createReducer(
 
   on(quizActions.setPlayerName, (state, { playerName }) => ({
     ...state,
-    playerName: playerName.toLocaleUpperCase(),
+    playerName,
   })),
 
   on(quizActions.nextLevel, (state) => {
