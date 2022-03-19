@@ -13,8 +13,10 @@
           [currentLevel]="game.currentLevel"
         ></nx-quiz-nav>
 
-        <div class="grid xl:grid-cols-12 gap-8 xl:gap-18 mb-2 bg-quiz-800 py-8 px-12">
-          <div class="xl:col-span-5 mb-11">
+        <div
+          class="grid xl:grid-cols-12 gap-2 xl:gap-12 mb-2 bg-quiz-800 pt-8 px-1 lg:px-12 overflow-hidden"
+        >
+          <div class="xl:col-span-5 mb-2 xl:mb-11">
             <h2 class="text-gray-100 !text-3xl mb-3">
               <span class="capitalize">{{ currentGenre$ | async }}</span>
               <span> song</span>
@@ -41,13 +43,19 @@
               ></nx-quiz-option-item>
             </ng-container>
           </div>
-          <div class="xl:col-span-7">
+          <div class="xl:col-span-7 relative">
             <nx-option-card
               *ngIf="game.selectedOption"
               [stop]="isQuestionCardPlaying"
               [selectedOption]="game.selectedOption"
               (isPlaying)="optionCardPlaying($event)"
             ></nx-option-card>
+            <img
+              *ngIf="!game.selectedOption"
+              class="block w-full absolute top-12 -right-28"
+              src="./assets/images/union.png"
+              alt="union"
+            />
           </div>
         </div>
 
