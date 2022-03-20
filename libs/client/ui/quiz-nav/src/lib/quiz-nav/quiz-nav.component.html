@@ -1,22 +1,40 @@
 <div class="bg-quiz-800 flex flex-col text-xs h-10 border-b-2 border-quiz-700">
   <div class="h-[4px] bg-slate-600 relative">
-    <div class="h-full w-[0%] indicator-current absolute top-0 left-0 z-[1]"></div>
+    <div
+      *ngIf="!levelIsCompleted"
+      class="h-full absolute top-0 left-0 z-[1]"
+      [ngStyle]="{ width: progressAnimation + '%' }"
+      [ngClass]="progressAnimation === 100 ? 'bg-slate-300' : 'indicator-current'"
+    ></div>
     <div
       class="h-full absolute top-0 left-0 z-[2]"
-      [ngStyle]="{ width: progressAnimation + '%' }"
-      [ngClass]="progressAnimation === 100 ? 'bg-quiz-300' : ['indicator-completed']"
+      [ngStyle]="{ width: levelIsCompleted && progressAnimation + '%' }"
+      [ngClass]="
+        levelIsCompleted && progressAnimation === 100
+          ? 'bg-quiz-300'
+          : 'indicator-completed'
+      "
     ></div>
   </div>
   <ul
-    class="flex flex-1 items-center justify-between uppercase list-none px-12 text-gray-200"
+    class="flex flex-1 items-center justify-between uppercase list-none px-12 text-slate-600"
   >
     <ng-container *ngFor="let item of data; index as i; last as isLast">
-      <li class="flex items-center" [ngClass]="{ 'text-quiz-300': i <= currentLevel }">
+      <li
+        class="flex items-center"
+        [ngClass]="{
+          'text-quiz-300': i <= currentLevel,
+          'text-slate-300': i === currentLevel && !levelIsCompleted
+        }"
+      >
         {{ item.genre }}
       </li>
       <li
         class="flex items-center"
-        [ngClass]="{ 'text-quiz-300': i <= currentLevel }"
+        [ngClass]="{
+          'text-quiz-300': i <= currentLevel,
+          'text-slate-300': i === currentLevel && !levelIsCompleted
+        }"
         *ngIf="!isLast"
       >
         <svg

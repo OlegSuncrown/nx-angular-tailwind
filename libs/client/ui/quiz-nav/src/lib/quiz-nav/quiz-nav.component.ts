@@ -11,7 +11,8 @@ export class QuizNavComponent implements OnInit {
   @Input() data!: QuizSection[];
   @Input() currentLevel = 0;
   @Input() progressAnimation: number | null = 0;
-
+  @Input() levelIsCompleted = false;
+  
   constructor() {}
 
   ngOnInit(): void {}

@@ -11,10 +11,11 @@
           [progressAnimation]="progressAnimation$ | async"
           [data]="game.data"
           [currentLevel]="game.currentLevel"
+          [levelIsCompleted]="game.levelIsCompleted"
         ></nx-quiz-nav>
 
         <div
-          class="grid xl:grid-cols-12 gap-2 xl:gap-12 mb-2 bg-quiz-800 pt-8 px-1 lg:px-12 overflow-hidden"
+          class="grid xl:grid-cols-12 gap-2 xl:gap-12 mb-2 bg-quiz-800 pt-8 px-2 sm:px-4 lg:px-12 overflow-hidden"
         >
           <div class="xl:col-span-5 mb-2 xl:mb-11">
             <h2 class="text-gray-100 !text-3xl mb-3">
