@@ -68,7 +68,7 @@
             (click)="onStartNewLevel()"
             [disabled]="game.levelIsCompleted === false"
           >
-            Next Question
+            {{game.data.length === game.currentLevel + 1 ? 'See My Score' : 'Next Question'}}
             <svg
               class="ml-2 -mr-1 w-5 h-5"
               fill="currentColor"

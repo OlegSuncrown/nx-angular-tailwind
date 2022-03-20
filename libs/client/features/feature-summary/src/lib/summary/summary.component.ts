@@ -11,14 +11,13 @@ import { tap } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SummaryComponent {
-  game$ = this.store.select(quizStore.selectGameQuizState)
-  // game$ = this.store.select(quizStore.selectGameQuizState).pipe(
-  //   tap((state) => {
-  //     if (!state.playerName) {
-  //       this.store.dispatch(navigateTo({ url: 'start' }));
-  //     }
-  //   })
-  // );
+  game$ = this.store.select(quizStore.selectGameQuizState).pipe(
+    tap((state) => {
+      if (!state.playerName) {
+        this.store.dispatch(navigateTo({ url: 'start' }));
+      }
+    })
+  );
 
   constructor(private store: Store) {}
 
