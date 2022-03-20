@@ -10,8 +10,11 @@
       'border-green-700': option.isSelected === 'completed',
       'border-red-800': option.isSelected === 'failed'
     }"
-    class="w-6 h-6 rounded-full border border-quiz-700 mr-3"
-  ></div>
+    class="w-6 h-6 rounded-full border border-quiz-700 mr-3 inline-flex justify-center items-center"
+  >
+  <mat-icon *ngIf="option.isSelected === 'completed'" class="text-sm !h-auto !w-auto" aria-hidden="false" aria-label="success">done</mat-icon>
+  <mat-icon *ngIf="option.isSelected === 'failed'" class="text-sm !h-auto !w-auto" aria-hidden="false" aria-label="success">close</mat-icon>
+</div>
   <div class="mb-0 text-sm">
     0{{ index + 1 }}: {{ option.name }} - {{ option.songTitle }}
   </div>
