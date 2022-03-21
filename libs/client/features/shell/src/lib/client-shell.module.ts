@@ -45,10 +45,10 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes),
     NgrxRootStoreModule,
     QuizStoreModule,
     HttpClientModule,
+    RouterModule.forRoot(routes),
   ],
   declarations: [ClientShellComponent],
 })

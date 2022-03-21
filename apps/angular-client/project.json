@@ -15,6 +15,7 @@
         "tsConfig": "apps/angular-client/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
+          "apps/angular-client/src/_redirects",
           {
             "glob": "favicon.ico",
             "input": "libs/client/assets/src",
